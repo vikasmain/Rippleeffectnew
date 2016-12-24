@@ -1,0 +1,93 @@
+A Button is a Push-button which can be pressed, or clicked, by the user to perform an action.
+Example
+This example will take you through simple steps to show how to create your own Android application using Linear Layout and Button.
+Step Description
+1 You will use Android Studio to create an Android application and name it as GUIDemo4 under a package com.example.guidemo4 as explained in the Hello World Example chapter.
+2 Modify src/MainActivity.java file to add a click event.
+2 Modify the default content of res/layout/activity_main.xml file to include Android UI control.
+3 Define required constants in res/values/strings.xml file
+4 Run the application to launch Android emulator and verify the result of the changes done in the application.
+Following is the content of the modified main activity filesrc/com.example.guidemo4/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+
+
+package com.example.guidemo4;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+public class MainActivity extends Activity
+{
+ private EditText edText1,edText2,edText3;
+ private Button btnProduct;
+ @Override
+ protected void onCreate(Bundle savedInstanceState)
+ {
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
+  addListenerOnButton();
+  }
+  private void addListenerOnButton()
+  {
+  edText1 = (EditText)findViewById(R.id.edittext);
+  edText2 = (EditText)findViewById(R.id.edittext2);
+  edText3 = (EditText)findViewById(R.id.edittext3);
+   btnProduct = (Button)findViewById(R.id.button1);
+btnProduct.setOnClickListener(new OnClickListener()
+ {
+ @Override
+ public void onClick(View view) {
+  String t1 = edText1.getText().toString();
+  String t2 = edText2.getText().toString();
+  String t3 = edText3.getText().toString();
+  int i1 = Integer.parseInt(t1);
+  int i2 = Integer.parseInt(t2);
+  int i3 = Integer.parseInt(t3);
+  int product = i1*i2*i3;
+  Toast.makeText(getApplicationContext(), String.valueOf(product),Toast.LENGTH_LONG).show(); } });
+  }
+    } }
+
+
+
+Following will be the content of res/layout/activity_main.xml file:
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+android:layout_height="match_parent" android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin" android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin" tools:context=".MainActivity" >
+<TextView android:id="@+id/textView1" android:layout_width="wrap_content"
+android:layout_height="wrap_content" android:text="@string/example_button" />
+<EditText android:id="@+id/edittext" android:layout_width="fill_parent"
+android:layout_height="wrap_content" android:layout_alignLeft="@+id/button1"
+android:layout_below="@+id/textView1" android:layout_marginTop="61dp"
+android:ems="10" android:inputType="text"
+android:text="@string/enter_text1" />
+<EditText android:id="@+id/edittext2" android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+
+android:layout_alignLeft="@+id/edittext3" android:layout_below="@+id/edittext" android:layout_marginTop="17dp"
+android:ems="10" android:inputType="text" android:text="@string/enter_text2" />
+<EditText android:id="@+id/edittext3" android:layout_width="fill_parent"
+android:layout_height="wrap_content" android:layout_alignLeft="@+id/edittext"
+android:layout_below="@+id/edittext2" android:layout_marginTop="14dp" android:ems="10"
+android:inputType="text" android:text="@string/enter_text3" />
+<Button android:id="@+id/button1" android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignLeft="@+id/textView1" android:layout_below="@+id/edittext3"
+android:layout_marginTop="35dp" android:text="@string/click_button" />
+</RelativeLayout>
+
+
+Following will be the content of res/values/strings.xml to define these new constants:
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">GUIDemo4</string>
+<string name="action_settings">Settings</string>
+<string name="example_button">Example showing Button</string>
+<string name="enter_text1"/> <string name="enter_text2"/> <string name="enter_text3"/>
+<string name="click_button">Calculate product of 3 numbers</string>
+</resources>

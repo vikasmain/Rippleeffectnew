@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bindass.dell.rippleeffect">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <application android:label="@string/app_name" android:icon="@drawable/image1_opt"
+
+        android:allowBackup="true"
+android:theme="@style/AppTheme">
+
+<activity android:name=".iaopen"></activity>
+
+        <activity android:name=".iaopen3"></activity>
+
+        <activity  android:theme="@style/AppTheme"
+        android:label="@string/app_name" android:name="com.bindass.dell.rippleeffect.MainActivity">
+
+
+    <intent-filter>
+
+    <action android:name="android.intent.action.MAIN"/>
+
+    <category android:name="android.intent.category.LAUNCHER"/>
+
+</intent-filter>
+
+</activity>
+        <activity android:name=".newp3"></activity>
+        <activity android:name=".newp4"></activity>
+        <activity  android:supportsRtl="true"
+            android:theme="@style/AppThememain"
+            android:name="com.bindass.dell.rippleeffect.fo"></activity>
+    <activity android:name="com.bindass.dell.rippleeffect.abandroid"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.andro"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.OverView"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.firts"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.Al"></activity>
+<activity android:name="com.bindass.dell.rippleeffect.gl"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.frl"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.lil"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.rl"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.tl"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.ll"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.luic"
+            ></activity>
+        <activity android:name=".co"></activity>
+        <activity android:theme="@style/AppTheme.NoActionBar"
+            android:label="@string/title_activity_spring_app_bar_layout" android:name="com.bindass.dell.rippleeffect.rb">
+
+        <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.luic"/>
+
+    </activity>
+        <activity android:name="com.bindass.dell.rippleeffect.rbimage"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.ttimage"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.btimage"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.etimage"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.imbutti"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.et"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.luic"/>
+
+        </activity>
+        <activity android:name=".newp"></activity>
+        <activity android:name=".newp2"></activity>
+<activity android:name="com.bindass.dell.rippleeffect.bt"
+    android:theme="@style/AppTheme.NoActionBar">
+    <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.luic"/>
+
+</activity>
+        <activity android:name="com.bindass.dell.rippleeffect.im"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.luic"/>
+
+        </activity>
+        <activity android:name="com.bindass.dell.rippleeffect.tt"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.luic"/>
+
+        </activity>
+        <activity android:name="com.bindass.dell.rippleeffect.effg"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.javaio"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.evexample"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.sty"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.alertdialogs"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.animations"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.Audiocap"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.camera"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.customfonts"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.phonecalls"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.sendingsms"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.sendingemail"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.spinner"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.Webview"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.asset"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.jcon"></activity>
+
+        <activity android:name="com.bindass.dell.rippleeffect.inheri"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.hw"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.abs"></activity>
+        <activity android:name="pac"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.sup"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.stat"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.finalk"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.thisk"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.identifier"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.pack"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.jbasics"
+            android:theme="@style/AppThememain"></activity>
+
+<activity android:name=".environment"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.ConceptActivity" android:parentActivityName="com.bindass.dell.rippleeffect.MainActivity">
+
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.MainActivity"/>
+
+        </activity>
+
+
+        <activity android:name="com.bindass.dell.rippleeffect.ResultActivity" android:parentActivityName="com.bindass.dell.rippleeffect.MainActivity">
+
+        <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.MainActivity"/>
+
+    </activity>
+
+
+        <activity android:name="com.bindass.dell.rippleeffect.ViewAnswerActivity" android:parentActivityName="com.bindass.dell.rippleeffect.MainActivity">
+
+        <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.bindass.dell.rippleeffect.MainActivity"/>
+
+    </activity>
+<activity android:name="com.bindass.dell.rippleeffect.lt"></activity>
+        <activity android:name="newkl3"></activity>
+<activity android:name="com.bindass.dell.rippleeffect.Aboutus"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.adb"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.ddms"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.distribute"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.gradle"></activity>
+        <activity android:name="com.bindass.dell.rippleeffect.logcat"></activity>
+
+    </application>
+
+</manifest>

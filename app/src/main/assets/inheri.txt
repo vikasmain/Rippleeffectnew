@@ -1,0 +1,109 @@
+Inheritance in Java:
+
+Inheritance:
+Types of Inheritance
+Why multiple inheritance is not possible in java in case of class?
+Inheritance in java is a mechanism in which one object acquires all the properties and behaviors of parent object.
+
+The idea behind inheritance in java is that you can create new classes that are built upon existing classes. When you inherit from an existing class, you can reuse methods and fields of parent class, and you can add new methods and fields also.
+
+Inheritance represents the IS-A relationship, also known as parent-child relationship.
+
+Why use inheritance in java
+
+For Method Overriding (so runtime polymorphism can be achieved).
+For Code Reusability.
+Syntax of Java Inheritance
+
+class Subclass-name extends Superclass-name  
+{  
+   //methods and fields  
+}  
+class Subclass-name extends Superclass-name  
+{  
+   //methods and fields  
+}  
+The extends keyword indicates that you are making a new class that derives from an existing class.
+
+In the terminology of Java, a class that is inherited is called a super class. The new class is called a subclass.
+
+Understanding the simple example of inheritance
+
+inheritance in java
+As displayed in the above figure, Programmer is the subclass and Employee is the superclass. Relationship between two classes is Programmer IS-A Employee.It means that Programmer is a type of Employee.
+
+class Employee{  
+ float salary=40000;  
+}  
+class Programmer extends Employee{  
+ int bonus=10000;  
+ public static void main(String args[]){  
+   Programmer p=new Programmer();  
+   System.out.println("Programmer salary is:"+p.salary);  
+   System.out.println("Bonus of Programmer is:"+p.bonus);  
+}  
+}  
+class Employee{  
+ float salary=40000;  
+}  
+class Programmer extends Employee{  
+ int bonus=10000;  
+ public static void main(String args[]){  
+   Programmer p=new Programmer();  
+   System.out.println("Programmer salary is:"+p.salary);  
+   System.out.println("Bonus of Programmer is:"+p.bonus);  
+}  
+}  
+Test it Now
+ Programmer salary is:40000.0
+ Bonus of programmer is:10000
+In the above example, Programmer object can access the field of own class as well as of Employee class i.e. code reusability.
+
+Types of inheritance in java
+
+On the basis of class, there can be three types of inheritance in java: single, multilevel and hierarchical.
+
+In java programming, multiple and hybrid inheritance is supported through interface only. We will learn about interfaces later.
+
+types of inheritance in java
+Note: Multiple inheritance is not supported in java through class.
+
+When a class extends multiple classes i.e. known as multiple inheritance. For Example:
+
+multiple inheritance in java
+Q) Why multiple inheritance is not supported in java?
+
+To reduce the complexity and simplify the language, multiple inheritance is not supported in java.
+
+Consider a scenario where A, B and C are three classes. The C class inherits A and B classes. If A and B classes have same method and you call it from child class object, there will be ambiguity to call method of A or B class.
+
+Since compile time errors are better than runtime errors, java renders compile time error if you inherit 2 classes. So whether you have same method or different, there will be compile time error now.
+
+class A{  
+void msg(){System.out.println("Hello");}  
+}  
+class B{  
+void msg(){System.out.println("Welcome");}  
+}  
+class C extends A,B{//suppose if it were  
+   
+ Public Static void main(String args[]){  
+   C obj=new C();  
+   obj.msg();//Now which msg() method would be invoked?  
+}  
+}  
+class A{  
+void msg(){System.out.println("Hello");}  
+}  
+class B{  
+void msg(){System.out.println("Welcome");}  
+}  
+class C extends A,B{//suppose if it were  
+   
+ Public Static void main(String args[]){  
+   C obj=new C();  
+   obj.msg();//Now which msg() method would be invoked?  
+}  
+}  
+Test it Now:
+Compile Time Error

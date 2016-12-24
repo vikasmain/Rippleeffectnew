@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="200dp"
+    android:layout_height="300dp"
+    android:background="#00ff7f"
+    android:id="@+id/l1">
+<TextView
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+    android:text="Wait!!!! "
+android:id="@+id/t1"
+    android:textStyle="bold|italic"
+    android:textSize="20dp"
+    android:textColor="#ffffff"
+
+    />
+    <ImageView
+    android:layout_width="200dp"
+    android:layout_height="300dp"
+    android:id="@+id/img1"
+        />
+</LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/l2"
+        android:layout_below="@+id/l1">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:text="Wait!!!"
+            android:id="@+id/t2"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+
+            />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+                      android:id="@+id/img2"
+            />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:background="#8470ff"
+        android:id="@+id/l3"
+        android:layout_below="@+id/l2">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:text="Wait!!!"
+            android:id="@+id/t3"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+
+            />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+
+            android:id="@+id/img3"
+            />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:background="#00ff7f"
+        android:id="@+id/l4"
+        android:layout_below="@+id/l3">
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:text="Wait!!!"
+            android:id="@+id/t4"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+
+            />
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+
+            android:id="@+id/img4"
+            />
+    </LinearLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="200dp"
+        android:layout_height="300dp"
+        android:background="#da70d6"
+        android:id="@+id/l5"
+        android:layout_below="@+id/l4">
+
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:text="Wait!!"
+            android:id="@+id/t5"
+            android:textStyle="bold|italic"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+
+            />
+               <ImageView
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+
+            android:id="@+id/img5"
+            />
+    </LinearLayout>
+</RelativeLayout>
+    </ScrollView>

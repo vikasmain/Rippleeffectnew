@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/blue"
+        android:title="Android Cheat sheet"
+        android:showAsAction="never"/>
+    <item android:id="@+id/ab"
+        android:title="Anatomy of an App"
+        android:showAsAction="never"/>
+<item android:id="@+id/sa"
+    android:title="create new Avd"
+    android:showAsAction="never"/>
+    <item android:id="@+id/envi"
+        android:title="create Androidstudio Environment"
+        android:showAsAction="never"/>
+</menu>

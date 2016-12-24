@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:padding="10dp"
+        android:text="First Configure your Real Device"
+        android:id="@+id/tec"
+        android:textColor="@color/colorAccent"
+        android:textSize="18dp"
+
+        android:layout_below="@+id/terun5"
+        android:textStyle="bold"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/real_device"
+        android:id="@+id/redevice"
+        android:layout_below="@+id/tec"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/set"
+        android:layout_below="@+id/redevice"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold|italic"
+        android:textSize="18dp"
+android:padding="10dp"
+        android:text="Click on Settings Option,then on About Phone Option(At the Bottom),Scroll down to the below Build Number option will come.Tap 7 times on this options"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imr"
+        android:layout_below="@+id/set"
+        android:src="@drawable/tap_7_times"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to the back ,developer option menu will generated,Click on it .scroll down ,enable the USB debugging option."
+        android:id="@+id/dev"
+        android:textColor="@color/colorAccent"
+android:padding="10dp"
+        android:textSize="18dp"
+        android:layout_below="@+id/imr"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/developer_options"
+        android:id="@+id/devop2"
+        android:layout_gravity="center"
+        android:layout_below="@+id/dev"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:id="@+id/derun"
+        android:layout_below="@+id/devop2"
+        android:textSize="18dp"
+        android:padding="5dp"
+        android:textColor="@color/colorAccent"
+        android:text="Now your device has been come in your pc....\n\nNow Run your application Choose your Real device.and then run it after sometime application will run."/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/hello_android_fix_string"
+        android:id="@+id/hel"
+        android:layout_gravity="center"
+        android:layout_below="@+id/teav"/>
+</LinearLayout>
+    </ScrollView>

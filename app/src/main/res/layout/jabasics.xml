@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        android:padding="10dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Hello"
+    android:textStyle="bold|italic"
+    android:id="@+id/tjbasics"
+    android:textColor="@color/colorAccent"/>
+        <com.google.android.gms.ads.AdView android:layout_height="wrap_content" android:layout_width="match_parent"
+            android:id="@+id/ad_view" ads:adUnitId="@string/banner_ad_unit_id" ads:adSize="BANNER"
+            android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+            android:layout_below="@+id/tjbasics"
+            android:layout_marginTop="10dp"/>
+
+    </RelativeLayout>
+    </ScrollView>

@@ -1,0 +1,68 @@
+Java I/O Tutorial
+
+Java I/O (Input and Output) is used to process the input and produce the output based on the input.
+
+Java uses the concept of stream to make I/O operation fast. The java.io package contains all the classes required for input and output operations.
+
+We can perform file handling in java by java IO API.
+
+Stream
+
+A stream is a sequence of data.In Java a stream is composed of bytes. It's called a stream because it's like a stream of water that continues to flow.
+
+In java, 3 streams are created for us automatically. All these streams are attached with console.
+
+1) System.out: standard output stream
+
+2) System.in: standard input stream
+
+3) System.err: standard error stream
+
+Let's see the code to print output and error message to the console.
+
+System.out.println("simple message");  
+System.err.println("error message");  
+System.out.println("simple message");  
+System.err.println("error message");  
+Let's see the code to get input from console.
+
+int i=System.in.read();//returns ASCII code of 1st character  
+System.out.println((char)i);//will print the character  
+int i=System.in.read();//returns ASCII code of 1st character  
+System.out.println((char)i);//will print the character  
+Do You Know ?
+How to write a common data to multiple files using single stream only ?
+How can we access multiple files by single stream ?
+How can we improve the performance of Input and Output operation ?
+How many ways can we read data from the keyboard?
+What is console class ?
+How to compress and uncompress the data of a file?
+OutputStream
+
+Java application uses an output stream to write data to a destination, it may be a file,an array,peripheral device or socket.
+
+InputStream
+
+Java application uses an input stream to read data from a source, it may be a file,an array,peripheral device or socket.
+OutputStream class
+
+OutputStream class is an abstract class.It is the superclass of all classes representing an output stream of bytes. An output stream accepts output bytes and sends them to some sink.
+
+Commonly used methods of OutputStream class
+
+Method
+1) public void write(int)throws IOException:	is used to write a byte to the current output stream.
+2) public void write(byte[])throws IOException:	is used to write an array of byte to the current output stream.
+3) public void flush()throws IOException:	flushes the current output stream.
+4) public void close()throws IOException:	is used to close the current output stream.
+output stream hierarchy in I/O
+InputStream class
+
+InputStream class is an abstract class.It is the superclass of all classes representing an input stream of bytes.
+
+Commonly used methods of InputStream class
+
+Method
+1) public abstract int read()throws IOException:	reads the next byte of data from the input stream.It returns -1 at the end of file.
+2) public int available()throws IOException:	returns an estimate of the number of bytes that can be read from the current input stream.
+3) public void close()throws IOException:	is used to close the current input stream.

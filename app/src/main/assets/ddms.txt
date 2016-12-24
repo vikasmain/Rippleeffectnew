@@ -1,0 +1,2 @@
+Android studio includes a debugging tool called DDMS,which provides port-forwarding services,screen capture on the device,logcat process and radio state information,incoming calls and SMS spoofing and more.
+DDMS integrated into android studio.

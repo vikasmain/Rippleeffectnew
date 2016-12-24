@@ -1,0 +1,107 @@
+A TextView displays text to the user and optionally allows them to edit it. A TextView is a complete text editor, however the basic class is configured to not allow editing.
+TextView Attributes:
+Following are the important attributes related to TextView control. You can check Android official documentation for complete list of attributes and related methods which you can use to change these attributes are run time.
+Attribute Description
+1.android:id= This is the ID which uniquely identifies the control.
+2.android:capitalize= If set, specifies that this TextView has a textual input method and should automatically capitalize what the user types. ? Don't automatically capitalize anything - 0 ? Capitalize the first word of each sentence - 1 ? Capitalize the first letter of every word - 2
+? Capitalize every character -3
+3. android:cursorVisible= Makes the cursor visible (the default) or invisible. Default is false.
+4.android:editable= If set to true, specifies that this TextView has an input method.
+5.android:fontFamily= Font family (named by string) for the text.
+6.android:gravity= Specifies how to align the text by the view's x- and/or y-axis when the text is smaller than the view.
+7.android:hint= Hint text to display when the text is empty.
+8.android:inputType= The type of data being placed in a text field. Phone, Date, Time, Number, Password etc.
+9.android:maxHeight= Makes the TextView be at most this many pixels tall.
+10.android:maxWidth= Makes the TextView be at most this many pixels wide.
+11.android:password= Whether the characters of the field are displayed as password dots instead of themselves. Possible value either "true" or "false".
+12.android:text= Text to display.
+13.android:textAllCaps= Present the text in ALL CAPS. Possible value either "true" or "false".
+14.android:textColor= Text color. May be a color value, in the form of "#rgb", "#argb", "#rrggbb", or "#aarrggbb".
+15.android:textSize= Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp).
+16.android:textStyle Style (bold, italic, bolditalic) for the text. You can use or more of the following values separated by '|'. ? normal - 0 ? bold - 1 ? italic - 2
+
+
+
+Example
+
+This example will take you through simple steps to show how to create your own Android application using Linear Layout and TextView.
+Step Description
+1. You will use Android studio to create an Android application and name it as GUIDemo under a package com.example.guidemo as explained in the Hello World Example chapter.
+2 Modify src/MainActivity.java file to add a click event.
+2 Modify the detault content of res/layout/activity_main.xml file to include Android UI control.
+3 Define required constants in res/values/strings.xml file
+4 Run the application to launch Android emulator and verify the result of the changes done in the aplication.
+Following is the content of the modified main activity file src/com.example.guidemo/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+
+
+
+package com.example.guidemo;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends Activity
+{
+@Override
+protected void onCreate(Bundle savedInstanceState)
+{
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+  //--- text view--- TextView txtView = (TextView) findViewById(R.id.text_id);
+  final String Label = txtView.getText().toString();
+  txtView.setOnClickListener(new View.OnClickListener()
+  { public void onClick(View v)
+  { Toast.makeText(getApplicationContext(), "You have clicked the Label : " + Label, Toast.LENGTH_LONG).show(); } });
+}
+ }
+
+ Following will be the content of res/layout/activity_main.xml file:
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:paddingBottom="@dimen/activity_vertical_margin" android:paddingLeft="@dimen/activity_horizontal_margin"
+ android:paddingRight="@dimen/activity_horizontal_margin" android:paddingTop="@dimen/activity_vertical_margin"
+ tools:context=".MainActivity" >
+ <TextView android:id="@+id/text_id"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content" android:capitalize="characters"
+ android:text="@string/hello_world" />
+ </RelativeLayout>
+
+
+ Following will be the content of res/values/strings.xml to define two new constants:
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+ <string name="app_name">GUIDemo</string>
+ <string name="action_settings">Settings</string>
+ <string name="hello_world">Hello world!</string>
+ </resources>
+
+
+
+ Following is the default content of AndroidManifest.xml:
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+ package="com.example.guidemo" android:versionCode="1" android:versionName="1.0" >
+ <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+ <application android:allowBackup="true" android:icon="@drawable/ic_launcher"
+ android:label="@string/app_name" android:theme="@style/AppTheme" >
+ <activity
+android:name="com.example.guidemo.MainActivity" android:label="@string/app_name" >
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+</application>
+</manifest>
+
+
+
+
+
+Let's try to run your GUIDemo application. I assume you had created your AVD while doing environment setup. To run the app from Eclipse, open one of your project's activity files and click Run icon from the toolbar. Eclipse installs the app on your AVD and starts it and if everything is fine with your setup and application, it will display following Emulator window:
+Now let's click on the Lable "Hello World", it will give following screen:

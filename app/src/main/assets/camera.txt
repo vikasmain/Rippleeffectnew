@@ -1,0 +1,580 @@
+These are the following two ways, in which you can use camera in your application
+
+Using existing android camera application in our application
+
+Directly using Camera API provided by android in our application
+
+Using existing android camera application in our application
+You will use MediaStore.ACTION_IMAGE_CAPTURE to launch an existing camera application installed on your phone. Its syntax is given below
+
+Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+Apart from the above, there are other available Intents provided by MediaStore. They are listed as follows
+
+Sr.No	Intent type and description
+1	ACTION_IMAGE_CAPTURE_SECURE
+It returns the image captured from the camera , when the device is secured
+
+2	ACTION_VIDEO_CAPTURE
+It calls the existing video application in android to capture video
+
+3	EXTRA_SCREEN_ORIENTATION
+It is used to set the orientation of the screen to vertical or landscape
+
+4	EXTRA_FULL_SCREEN
+It is used to control the user interface of the ViewImage
+
+5	INTENT_ACTION_VIDEO_CAMERA
+This intent is used to launch the camera in the video mode
+
+6	EXTRA_SIZE_LIMIT
+It is used to specify the size limit of video or image capture size
+
+Now you will use the function startActivityForResult() to launch this activity and wait for its result. Its syntax is given below
+
+startActivityForResult(intent,0)
+This method has been defined in the activity class. We are calling it from main activity. There are methods defined in the activity class that does the same job , but used when you are not calling from the activity but from somewhere else. They are listed below
+
+Sr.No	Activity function description
+1	startActivityForResult(Intent intent, int requestCode, Bundle options)
+It starts an activity , but can take extra bundle of options with it
+
+2	startActivityFromChild(Activity child, Intent intent, int requestCode)
+It launch the activity when your activity is child of any other activity
+
+3	startActivityFromChild(Activity child, Intent intent, int requestCode, Bundle options)
+It work same as above , but it can take extra values in the shape of bundle with it
+
+4	startActivityFromFragment(Fragment fragment, Intent intent, int requestCode)
+It launches activity from the fragment you are currently inside
+
+5	startActivityFromFragment(Fragment fragment, Intent intent, int requestCode, Bundle options)
+It not only launches the activity from the fragment , but can take extra values with it
+
+No matter which function you used to launch the activity , they all return the result. The result can be obtained by overriding the function onActivityResult.
+
+Example
+Here is an example that shows how to launch the existing camera application to capture an image and display the result in the form of bitmap
+
+To experiment with this example , you need to run this on an actual device on which camera is supported.
+
+Steps	Description
+1	You will use Android studio IDE to create an Android application and name it as Camera under a com.example.sairamkrishna.myapplication. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs.
+2	Modify src/MainActivity.java file to add intent code to launch the activity and result method to recieve the output.
+3	Modify layout XML file res/layout/activity_main.xml add any GUI component if required. Here we add only imageView and a textView.
+4	Run the application and choose a running android device and install the application on it and verify the results.
+Following is the content of the modified main activity file src/MainActivity.java.
+
+package com.example.sairamkrishna.myapplication;
+
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+
+import android.graphics.Bitmap;
+import android.os.BatteryManager;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+public class MainActivity extends ActionBarActivity {
+   Button b1,b2;
+   ImageView iv;
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      
+      b1=(Button)findViewById(R.id.button);
+      iv=(ImageView)findViewById(R.id.imageView);
+      
+      b1.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            Intent intent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+            startActivityForResult(intent, 0);
+         }
+      });
+   }
+   
+   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+      // TODO Auto-generated method stub
+      super.onActivityResult(requestCode, resultCode, data);
+      
+      Bitmap bp = (Bitmap) data.getExtras().get("data");
+      iv.setImageBitmap(bp);
+   }
+   
+   @Override
+   protected void onDestroy() {
+      super.onDestroy();
+   }
+   
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }
+   
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+      // Handle action bar item clicks here. The action bar will
+      // automatically handle clicks on the Home/Up button, so long
+      // as you specify a parent activity in AndroidManifest.xml.
+      
+      int id = item.getItemId();
+      
+      //noinspection SimplifiableIfStatement
+      if (id == R.id.action_settings) {
+         return true;
+      }
+      return super.onOptionsItemSelected(item);
+   }
+}
+Following will be the content of res/layout/activity_main.xml file-
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+   android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+   
+   <TextView android:text="Camera Example" android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/textview"
+      android:textSize="35dp"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true" />
+      
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point"
+      android:id="@+id/textView"
+      android:layout_below="@+id/textview"
+      android:layout_centerHorizontal="true"
+      android:textColor="#ff7aff24"
+      android:textSize="35dp" />
+      
+   <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageView"
+      android:src="@drawable/abc"
+      android:layout_below="@+id/textView"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="camera"
+      android:id="@+id/button"
+      android:layout_below="@+id/imageView"
+      android:layout_centerHorizontal="true"
+      android:layout_marginTop="86dp" />
+      
+</RelativeLayout>
+Following will be the content of res/values/strings.xml to define one new constants
+
+<resources>
+   <string name="app_name">My Application</string>
+   <string name="hello_world">Hello world!</string>
+   <string name="action_settings">Settings</string>
+</resources>
+Following is the default content of AndroidManifest.xml -
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.camera"
+   android:versionCode="1"
+   android:versionName="1.0" >
+
+   <application
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme" >
+      
+      <activity
+         android:name="com.example.sairamkrishna.myapplication.MainActivity"
+         android:label="@string/app_name" >
+         
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+         
+     </activity>
+     
+   </application>
+</manifest>
+Let's try to run your application. I assume you have connected your actual Android Mobile device with your computer. To run the app from android studio, open one of your project's activity files and click Run Eclipse Run Icon icon from the tool bar. Before starting your application, Android studio will display following window to select an option where you want to run your Android application.
+
+Anroid Camera Tutorial
+Select your mobile device as an option and then check your mobile device which will display following screen -
+
+Anroid Camera Tutorial
+Now just tap on the button on and the camera will be opened. Just capture a picture. After capturing it , two buttons will appear asking you to discard it or keep it
+
+Anroid Camera Tutorial
+Just press the tic button and you will be brought back to your application with the captured image in place of android icon
+
+Anroid Camera-second way
+Directly using Camera API provided by android in our application
+We will be using the camera API to integrate the camera in our application
+
+First you will need to initialize the camera object using the static method provide by the api called Camera.open. Its syntax is
+
+Camera object = null;
+object = Camera.open(); 
+Apart from the above function , there are other functions provided by the Camera class that which are listed below
+
+Sr.No	Method & Description
+1	getCameraInfo(int cameraId, Camera.CameraInfo cameraInfo)
+It returns the information about a particular camera
+
+2	getNumberOfCameras()
+It returns an integer number defining of cameras available on device
+
+3	lock()
+It is used to lock the camera , so no other application can access it
+
+4	release()
+It is used to release the lock on camera , so other applications can access it
+
+5	open(int cameraId)
+It is used to open particular camera when multiple cameras are supported
+
+6	enableShutterSound(boolean enabled)
+It is used to enable/disable default shutter sound of image capture
+
+Now you need make an separate class and extend it with SurfaceView and implements SurfaceHolder interface.
+
+The two classes that have been used have the following purpose
+
+Class	Description
+Camera	It is used to control the camera and take images or capture video from the camera
+SurfaceView	This class is used to present a live camera preview to the user.
+You have to call the preview method of the camera class to start the preview of the camera to the user
+
+public class ShowCamera extends SurfaceView implements SurfaceHolder.Callback {
+   private Camera theCamera;
+   
+   public void surfaceCreated(SurfaceHolder holder) {
+      theCamera.setPreviewDisplay(holder);
+      theCamera.startPreview();
+   }
+   
+   public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3){
+   }
+   
+   public void surfaceDestroyed(SurfaceHolder arg0) {
+   }
+}	
+Apart from the preview there are other options of the camera that can be set using the other functions provided by the Camera API
+
+Sr.No	Method & Description
+1	startFaceDetection()
+This function starts the face detection in the camera
+
+2	stopFaceDetection()
+It is used to stop the face detection which is enabled by the above function
+
+3	startSmoothZoom(int value)
+It takes an integer value and zoom the camera very smoothly to that value
+
+4	stopSmoothZoom()
+It is used to stop the zoom of the camera
+
+5	stopPreview()
+It is used to stop the preview of the camera to the user
+
+6	takePicture(Camera.ShutterCallback shutter, Camera.PictureCallback raw, Camera.PictureCallback jpeg)
+It is used to enable/disable default shutter sound of image capture
+
+Example
+Following example demonstrates the usage of the camera API in the application
+
+To experiment with this example, you will need actual Mobile device equipped with latest Android OS, because camera is not supported by the emulator
+
+Steps	Description
+1	You will use Android studio IDE to create an Android application and name it as Camera under a package com.example.sairamkrishna.myapplication;. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs.
+2	Modify src/MainActivity.java file to add the respective code of camera.
+3	Modify layout XML file res/layout/activity_main.xml add any GUI component if required. Here we add only FrameView and a button and a ImageView.
+4	Modify AndroidManifest.xml as shown below to add the necessary permissions for camera
+5	Run the application and choose a running android device and install the application on it and verify the results.
+Following is the content of the modified main activity file src/MainActivity.java.
+
+package com.example.sairamkrishna.myapplication;
+
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+
+import android.graphics.Bitmap;
+import android.hardware.Camera;
+import android.hardware.Camera.PictureCallback;
+import android.hardware.Camera.ShutterCallback;
+
+import android.os.BatteryManager;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import java.util.ArrayList;
+import java.util.Set;
+
+public class MainActivity extends Activity implements SurfaceHolder.Callback {
+   Camera camera;
+   SurfaceView surfaceView;
+   SurfaceHolder surfaceHolder;
+   
+   Camera.PictureCallback rawCallback;
+   Camera.ShutterCallback shutterCallback;
+   Camera.PictureCallback jpegCallback;
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      
+      surfaceView = (SurfaceView) findViewById(R.id.surfaceView);
+      surfaceHolder = surfaceView.getHolder();
+      
+      surfaceHolder.addCallback(this);
+      surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+      
+      jpegCallback = new PictureCallback() {
+         
+         @Override
+         public void onPictureTaken(byte[] data, Camera camera) {
+            FileOutputStream outStream = null;
+               try {
+                  outStream = new FileOutputStream(String.format("/sdcard/%d.jpg", System.currentTimeMillis()));
+                  
+                  outStream.write(data);
+                  outStream.close();
+               }
+               
+               catch (FileNotFoundException e) {
+                  e.printStackTrace();
+               }
+               
+               catch (IOException e) {
+                  e.printStackTrace();
+               }
+               
+               finally {
+               }
+               
+               Toast.makeText(getApplicationContext(), "Picture Saved", Toast.LENGTH_LONG).show();
+               refreshCamera();
+            }
+         };
+      }
+      
+      public void captureImage(View v) throws IOException {
+         camera.takePicture(null, null, jpegCallback);
+      }
+      
+      public void refreshCamera() {
+         if (surfaceHolder.getSurface() == null) {
+            return;
+         }
+         
+         try {
+            camera.stopPreview();
+         }
+         
+         catch (Exception e) {
+         }
+         
+         try {
+            camera.setPreviewDisplay(surfaceHolder);
+            camera.startPreview();
+         }
+         catch (Exception e) {
+      }
+   }
+   
+   @Override
+   protected void onDestroy() {
+      super.onDestroy();
+   }
+   
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }
+   
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+      // Handle action bar item clicks here. The action bar 
+      // automatically handle clicks on the Home/Up button, so long
+      // as you specify a parent activity in AndroidManifest.xml.
+      
+      int id = item.getItemId();
+      
+      //noinspection SimplifiableIfStatement
+      if (id == R.id.action_settings) {
+         return true;
+      }
+      return super.onOptionsItemSelected(item);
+   }
+   
+   @Override
+   public void surfaceCreated(SurfaceHolder holder) {
+      try {
+         camera = Camera.open();
+      }
+      
+      catch (RuntimeException e) {
+         System.err.println(e);
+         return;
+      }
+      
+      Camera.Parameters param;
+      param = camera.getParameters();
+      param.setPreviewSize(352, 288);
+      camera.setParameters(param);
+      
+      try {
+         camera.setPreviewDisplay(surfaceHolder);
+         camera.startPreview();
+      }
+      
+      catch (Exception e) {
+         System.err.println(e);
+         return;
+      }
+   }
+   
+   @Override
+   public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+      refreshCamera();
+   }
+   
+   @Override
+   public void surfaceDestroyed(SurfaceHolder holder) {
+      camera.stopPreview();
+      camera.release();
+      camera = null;
+   }
+}
+Modify the content of the res/layout/activity_main.xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+   android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+   
+   <TextView android:text="Camera Example" android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/textview"
+      android:textSize="35dp"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true" />
+      
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorials point"
+      android:id="@+id/textView"
+      android:layout_below="@+id/textview"
+      android:layout_centerHorizontal="true"
+      android:textColor="#ff7aff24"
+      android:textSize="35dp" />
+      
+   <SurfaceView
+      android:id="@+id/surfaceView"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"/>
+      
+</RelativeLayout>
+Modify the content of the res/values/string.xml
+
+<resources>
+   <string name="app_name">My Application</string>
+   <string name="hello_world">Hello world!</string>
+   <string name="action_settings">Settings</string>
+</resources>
+Modify the content of the AndroidManifest.xml and add the necessary permissions as shown below.
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.camera1"
+   android:versionCode="1"
+   android:versionName="1.0" >
+   
+   <uses-permission android:name="android.permission.CAMERA" />
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+   <uses-feature android:name="android.hardware.camera" />
+   <uses-feature android:name="android.hardware.camera.autofocus" />
+
+   <application
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme" >
+      
+      <activity
+         android:name="com.example.sairamkrishna.myapplication.MainActivity"
+         android:label="@string/app_name" >
+      
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+         
+      </activity>
+      
+   </application>
+</manifest>

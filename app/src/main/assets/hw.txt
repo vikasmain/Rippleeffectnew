@@ -1,0 +1,36 @@
+Simple Java Program:
+class FirstProgram
+{
+public static void main(String args[])
+{
+System.out.println(?This is my first program?);
+}
+}
+
+
+
+The file must be named ?FirstProgram.java? to equivalent the class name containing the main method. Java is case sensitive. This program defines a class called ?FirstProgram?. A class is an object oriented term. It is designed to perform a specific task. A Java class is defined by its class name, an open curly brace, a list of methods and fields, and a close curly brace. The name of the class is made of alphabetical characters and digits without spaces, the first character must be alphabetical. The line ?public static void main (String [] args )? shows where the program will start running. The word main means that this is the main method �
+The JVM starts running any program by executing this method first. The main method in ?FirstProgram.java? consists of a single statement
+System.out.println("This is my first program"); The statement outputs the character between quotes to the console.
+Above explanation is about how to write program and now we have to learn where to write program and how to compile and run the program.
+For this reason, the next explanation is showing the steps.
+1. Edit the program by the use of Notepad.
+2. Save the program to the hard disk.
+3. Compile the program with the javac command.(Java compiler)
+4. If there are syntax errors, go back to Notepad and edit the program.
+5. Run the program with the java command.(Java Interpreter)
+6. If it does not run correctly, go back to Notepad and edit the program.
+7. When it shows result then stop.
+For compiling and running the program we have to use following commands:
+a) javac (Java compiler)
+In java, we can use any text editor for writing program and then save that program with ?.java? extension. Java compiler convert the source code or program in bytecode and interpreter convert ?.java? file in ?.class? file.
+Syntax:
+C:\javac filename.java
+If my filename is ?abc.java? then the syntax will be
+C:\javac abc.java
+b) java(Java Interpreter)
+As we learn that, we can use any text editor for writing program and then save that program with ?.java? extension. Java compiler convert the source code or program in bytecode and interpreter convert ?.java? file in ?.class? file.
+Syntax:
+C:\java filename
+If my filename is abc.java then the syntax will be
+C:\java abc

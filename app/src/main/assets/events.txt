@@ -1,0 +1,59 @@
+Event Handling Examples
+EVENT LISTENERS REGISTRATION USING AN ANONYMOUS INNER CLASS
+Here you will create an anonymous implementation of the listener and will be useful if each class is applied to a single control only and you have advantage to pass arguments to event handler. In this approach event handler methods can access private data of Activity. No reference is needed to call to Activity. But if you applied the handler to more than one control, you would have to cut and paste the code for the handler and if the code for the handler is long, it makes the code harder to maintain. Following are the simple steps to show how we will make use of separate Listener class to register and capture click event. Similar way you can implement your listener for any other required event type. Step Description 1 You will use Eclipse IDE to create an Android application and name it as EventDemo under a package com.example.eventdemo as explained in the Hello World Example chapter. 2 Modify src/MainActivity.java file to add click event listeners and handlers for the two buttons defined. 3 Modify the detault content of res/layout/activity_main.xml file to include Android UI controls. 4 Define required constants in res/values/strings.xml file 5 Run the application to launch Android emulator and verify the result of the changes done in the aplication. Following is the content of the modified main activity filesrc/com.example.eventdemo/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+package com.example.eventdemo;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+public class MainActivity extends Activity
+{
+@Override
+protected void onCreate(Bundle savedInstanceState)
+{
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ //--- find both the buttons--- Button sButton = (Button) findViewById(R.id.button_s);
+ Button lButton = (Button) findViewById(R.id.button_l);
+ // -- register click event with first button --- sButton.setOnClickListener(new View.OnClickListener()
+ {
+ public void onClick(View v)
+ { // --- find the text view -- TextView txtView = (TextView) findViewById(R.id.text_id);
+  // -- change text size -- txtView.setTextSize(14); }
+  });
+  // -- register click event with second button --- lButton.setOnClickListener(new View.OnClickListener()
+  {
+   public void onClick(View v)
+   { // --- find the text view -- TextView txtView = (TextView) findViewById(R.id.text_id);
+    // -- change text size -- txtView.setTextSize(24); } }); } } }
+
+
+Following will be the content of res/layout/activity_main.xml file:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent" android:layout_height="fill_parent"
+android:orientation="vertical" >
+<Button android:id="@+id/button_s" android:layout_height="wrap_content"
+android:layout_width="match_parent" android:text="@string/button_small"/>
+
+<Button android:id="@+id/button_l" android:layout_height="wrap_content"
+android:layout_width="match_parent" android:text="@string/button_large"/>
+<TextView android:id="@+id/text_id" android:layout_width="wrap_content"
+android:layout_height="wrap_content" android:capitalize="characters"
+android:text="@string/hello_world" />
+</LinearLayout>
+
+
+
+
+Following will be the content of res/values/strings.xml to define two new constants:
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">EventDemo</string>
+<string name="action_settings">Settings</string>
+<string name="hello_world">Hello world!</string>
+<string name="button_small">Small Font</string>
+<string name="button_large">Large Font</string>
+</resources>

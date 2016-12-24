@@ -1,0 +1,293 @@
+Android has a built in microphone through which you can capture audio and store it , or play it in your phone. There are many ways to do that but the most common way is through MediaRecorder class.
+
+Android provides MediaRecorder class to record audio or video. In order to use MediaRecorder class ,you will first create an instance of MediaRecorder class. Its syntax is given below.
+
+MediaRecorder myAudioRecorder = new MediaRecorder();
+Now you will set the source , output and encoding format and output file. Their syntax is given below.
+
+myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+myAudioRecorder.setOutputFile(outputFile);
+After specifying the audio source and format and its output file, we can then call the two basic methods prepare and start to start recording the audio.
+
+myAudioRecorder.prepare();
+myAudioRecorder.start();
+Apart from these methods , there are other methods listed in the MediaRecorder class that allows you more control over audio and video recording.
+
+Sr.No	Method & description
+1	setAudioSource()
+This method specifies the source of audio to be recorded
+
+2	setVideoSource()
+This method specifies the source of video to be recorded
+
+3	setOutputFormat()
+This method specifies the audio format in which audio to be stored
+
+4	setAudioEncoder()
+This method specifies the audio encoder to be used
+
+5	setOutputFile()
+This method configures the path to the file into which the recorded audio is to be stored
+
+6	stop()
+This method stops the recording process.
+
+7	release()
+This method should be called when the recorder instance is needed.
+
+Example
+This example provides demonstration of MediaRecorder class to capture audio and then MediaPlayer class to play that recorded audio.
+
+To experiment with this example , you need to run this on an actual device.
+
+Steps	Description
+1	You will use Android studio IDE to create an Android application and name it as AudioCapture under a package com.example.sairamkrishna.myapplication;. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs.
+2	Modify src/MainActivity.java file to add AudioCapture code
+3	Modify layout XML file res/layout/activity_main.xml add any GUI component if required.
+4	Modify AndroidManifest.xml to add necessary permissions.
+5	Run the application and choose a running android device and install the application on it and verify the results.
+Here is the content of src/MainActivity.java
+
+package com.example.sairamkrishna.myapplication;
+
+import android.app.Activity;
+import android.media.MediaPlayer;
+import android.media.MediaRecorder;
+
+import android.os.Bundle;
+import android.os.Environment;
+
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+
+import android.widget.ImageView;
+import android.widget.Toast;
+import java.io.IOException;
+
+
+public class MainActivity extends Activity {
+   Button play,stop,record;
+   private MediaRecorder myAudioRecorder;
+   private String outputFile = null;
+   
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      
+      play=(Button)findViewById(R.id.button3);
+      stop=(Button)findViewById(R.id.button2);
+      record=(Button)findViewById(R.id.button);
+      
+      stop.setEnabled(false);
+      play.setEnabled(false);
+      outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.3gp";;
+      
+      myAudioRecorder=new MediaRecorder();
+      myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+      myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+      myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+      myAudioRecorder.setOutputFile(outputFile);
+      
+      record.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            try {
+               myAudioRecorder.prepare();
+               myAudioRecorder.start();
+            }
+            
+            catch (IllegalStateException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+            }
+            
+            catch (IOException e) {
+               // TODO Auto-generated catch block
+               e.printStackTrace();
+            }
+            
+            record.setEnabled(false);
+            stop.setEnabled(true);
+            
+            Toast.makeText(getApplicationContext(), "Recording started", Toast.LENGTH_LONG).show();
+         }
+      });
+      
+      stop.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            myAudioRecorder.stop();
+            myAudioRecorder.release();
+            myAudioRecorder  = null;
+            
+            stop.setEnabled(false);
+            play.setEnabled(true);
+            
+            Toast.makeText(getApplicationContext(), "Audio recorded successfully",Toast.LENGTH_LONG).show();
+         }
+      });
+      
+      play.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) throws IllegalArgumentException,SecurityException,IllegalStateException {
+            MediaPlayer m = new MediaPlayer();
+            
+            try {
+               m.setDataSource(outputFile);
+            }
+            
+            catch (IOException e) {
+               e.printStackTrace();
+            }
+            
+            try {
+               m.prepare();
+            }
+            
+            catch (IOException e) {
+               e.printStackTrace();
+            }
+            
+            m.start();
+            Toast.makeText(getApplicationContext(), "Playing audio", Toast.LENGTH_LONG).show();
+         }
+      });
+   }
+   
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }
+   
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+      // Handle action bar item clicks here. The action bar will
+      // automatically handle clicks on the Home/Up button, so long
+      // as you specify a parent activity in AndroidManifest.xml.
+      
+      int id = item.getItemId();
+      
+      //noinspection SimplifiableIfStatement
+      if (id == R.id.action_settings) {
+         return true;
+      }
+      return super.onOptionsItemSelected(item);
+   }
+}
+Here is the content of activity_main.xml
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" 
+   android:layout_width="match_parent"
+   android:layout_height="match_parent" 
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" 
+   tools:context=".MainActivity">
+   
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Android Audio Recording"
+      android:id="@+id/textView"
+      android:textSize="30dp"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentEnd="true" />
+      
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorialspoint"
+      android:id="@+id/textView2"
+      android:textColor="#ff3eff0f"
+      android:textSize="35dp"
+      android:layout_below="@+id/textView"
+      android:layout_centerHorizontal="true" />
+      
+   <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageView"
+      android:src="@drawable/logo"
+      android:layout_below="@+id/textView2"
+      android:layout_alignLeft="@+id/textView2"
+      android:layout_alignStart="@+id/textView2"
+      android:layout_alignRight="@+id/textView2"
+      android:layout_alignEnd="@+id/textView2" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Record"
+      android:id="@+id/button"
+      android:layout_below="@+id/imageView"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="59dp" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Stop"
+      android:id="@+id/button2"
+      android:layout_alignTop="@+id/button"
+      android:layout_centerHorizontal="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="play"
+      android:id="@+id/button3"
+      android:layout_alignTop="@+id/button2"
+      android:layout_alignRight="@+id/textView"
+      android:layout_alignEnd="@+id/textView" />
+
+</RelativeLayout>
+Here is the content of Strings.xml
+
+<resources>
+   <string name="app_name">My Application</string>
+   <string name="hello_world">Hello world!</string>
+   <string name="action_settings">Settings</string>
+</resources>
+Here is the content of AndroidManifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.audiocapture"
+   android:versionCode="1"
+   android:versionName="1.0" >
+   
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+   <uses-permission android:name="android.permission.RECORD_AUDIO" /> 
+
+   <application
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme" >
+      
+      <activity
+         android:name="com.example.audiocapture.MainActivity"
+         android:label="@string/app_name" >
+      
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      
+      </activity>
+      
+   </application>
+</manifest>

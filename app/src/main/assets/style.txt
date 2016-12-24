@@ -1,0 +1,136 @@
+Defining Styles
+A style is defined in an XML resource that is separate from the XML that specifies the layout. This XML file resides under res/values/ directory of your project and will have <resources> as the root node which is mandatory for the style file. The name of the XML file is arbitrary, but it must use the .xml extension. You can define multiple styles per file using <style> tag but each style will have its name that uniquely identifies the style. Android style attributes are set using <item> tag as shown below:
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<style name="CustomFontStyle">
+<item name="android:layout_width">fill_parent</item>
+<item name="android:layout_height">wrap_content</item>
+<item name="android:capitalize">characters</item>
+<item name="android:typeface">monospace</item>
+<item name="android:textSize">12pt</item>
+<item name="android:textColor">#00FF00</item>/>
+</style>
+</resources>
+
+The value for the <item> can be a keyword string, a hex color, a reference to another resource type, or other value depending on the style property. Using Styles Once your style is defined, you can use it in your XML Layout file using style attribute as follows:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent" android:layout_height="fill_parent"
+android:orientation="vertical" >
+<TextView android:id="@+id/text_id" style="@style/CustomFontStyle"
+android:text="@string/hello_world" />
+</LinearLayout>
+
+To understand the concept related to Android Style, you can check Style Demo Example given below:
+Following example demonstrates how you can use a Style for individual elements. Let's start with creating a simple Android application as per the following steps:
+
+Step Description
+1 You will use Android Studio to create an Android application and name it as StyleDemo under a package com.example.styledemo as explained in the Hello World Example chapter. 2 Modify src/MainActivity.java file to add click event listeners and handlers for the two buttons defined.
+3 Define your style in global style file res/values/style.xml to define custom attributes for a button.
+4 Modify the detault content of res/layout/activity_main.xml file to include a set of Android UI controls and make use of the defined style.
+5 Define required constants in res/values/strings.xml file
+6 Run the application to launch Android emulator and verify the result of the changes done in the aplication.
+
+
+Following is the content of the modified main activity filesrc/com.example.styledemo/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+
+
+package com.example.styledemo;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+public class MainActivity extends Activity
+{
+@Override
+protected void onCreate(Bundle savedInstanceState)
+{
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+//--- find both the buttons--- Button sButton = (Button) findViewById(R.id.button_s);
+Button lButton = (Button) findViewById(R.id.button_l);
+// -- register click event with first button --- sButton.setOnClickListener(new View.OnClickListener()
+{
+ public void onClick(View v)
+ { // --- find the text view -- TextView txtView = (TextView) findViewById(R.id.text_id);
+  // -- change text size -- txtView.setTextSize(20); } });
+   // -- register click event with second button --- lButton.setOnClickListener(new View.OnClickListener()
+   {
+    public void onClick(View v)
+    {
+    // --- find the text view -- TextView txtView = (TextView) findViewById(R.id.text_id);
+    // -- change text size -- txtView.setTextSize(24);
+    }
+});
+}  }
+
+
+Following will be the content of res/values/style.xml file which will have addition styleCustomButtonStyle defined: <resources> <!-- Base application theme, dependent on API level. This theme is replaced by AppBaseTheme from res/values-vXX/styles.xml on newer devices. -->
+<style name="AppBaseTheme" parent="android:Theme.Light">
+<!-- Theme customizations available in newer API levels can go in res/values-vXX/styles.xml, while customizations related to backward-compatibility can go here. -->
+</style>
+<!-- Application theme. -->
+<style name="AppTheme" parent="AppBaseTheme">
+<!-- All customizations that are NOT specific to a particular API-level can go here. -->
+</style>
+<!-- Custom Style defined for the buttons. -->
+<style name="CustomButtonStyle">
+<item name="android:layout_width">100dp</item>
+<item name="android:layout_height">38dp</item>
+<item name="android:capitalize">characters</item>
+<item name="android:typeface">monospace</item>
+<item name="android:shadowDx">1.2</item>
+<item name="android:shadowDy">1.2</item>
+<item name="android:shadowRadius">2</item>
+<item name="android:textColor">#494948</item>/>
+<item name="android:gravity" >center</item>
+<item name="android:layout_margin" >3dp</item>
+<item name="android:textSize" >5pt</item>
+<item name="android:shadowColor" >#000000</item>
+</style>
+</resources>
+
+
+
+Following will be the content of res/layout/activity_main.xml file:
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent" android:layout_height="fill_parent"
+android:orientation="vertical" >
+<Button android:id="@+id/button_s" style="@style/CustomButtonStyle"
+android:text="@string/button_small" android:onClick="doSmall"/>
+<Button android:id="@+id/button_l" style="@style/CustomButtonStyle"
+android:text="@string/button_large" android:onClick="doLarge"/>
+<TextView android:id="@+id/text_id" android:layout_width="wrap_content"
+android:layout_height="wrap_content" android:capitalize="characters"
+android:text="@string/hello_world" />
+</LinearLayout>
+
+Following will be the content of res/values/strings.xml to define two new constants:
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">StyleDemo</string>
+<string name="action_settings">Settings</string>
+<string name="hello_world">Hello world!</string>
+<string name="button_small">Small Font</string>
+<string name="button_large">Large Font</string>
+</resources>
+
+
+Following is the default content of AndroidManifest.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.guidemo"
+android:versionCode="1" android:versionName="1.0" >
+<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+<application android:allowBackup="true" android:icon="@drawable/ic_launcher"
+android:label="@string/app_name" android:theme="@style/AppTheme" >
+<activity android:name="com.example.guidemo.MainActivity" android:label="@string/app_name" >
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+</application>
+</manifest>

@@ -1,0 +1,10 @@
+It is a versatile command line tool that lets you communicate with an emulator instances or connected android-powered device.it is a client server program that includes three components:-
+1.A client
+2.A Daemon
+3.A server
+
+
+
+How adb works?
+
+when we start an adb client,the client first checks whether there is an adb server process already running .the server then sets up connection to all running emulator/device instances.it locates emulator/device instances by scanning odd-numbered ports in the range 5555 to 5585,the range used by emulator/devices.when the server finds an adb daemon,it sets up a connection to that port.

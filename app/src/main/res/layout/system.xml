@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Windows"
+        android:textStyle="bold"
+        android:textSize="25dp"/>
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+        android:text="@string/syswindow"
+        android:textStyle="bold|italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Mac"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sysmac"
+        android:textStyle="bold|italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="10dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Linux"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/syslinux"
+        android:textStyle="bold|italic"
+        android:textSize="20dp"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="10dp" />
+</LinearLayout>
+    </ScrollView>

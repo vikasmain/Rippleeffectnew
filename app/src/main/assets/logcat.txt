@@ -1,0 +1,3 @@
+when Android is running it's generating all kinds of system messages.you see programmers can optionally output status information in real time to a system log,and android itself sends all kinds of useful information out that way.it is called cat because there is a command in linux/unix called cat that is used to view the contents of multiple files together.
+Logcat is a command line tool that dumps a log of system messages includeing stack traces when the device throws an error and messages that you have written from your app with the 'Log' class.
+Every log message has a tag and priority associated with it.

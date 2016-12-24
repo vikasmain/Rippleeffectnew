@@ -1,0 +1,70 @@
+ Linear Layout:
+
+Android LinearLayout is a view group that aligns all children in a single direction, vertically orhorizontally.
+LinearLayout Attributes:
+Following are the important attributes specific to LinearLayout:
+    1.android:id= This is the ID which uniquely identifies the layout.
+    2.android:baselineAligned= This must be a boolean value, either "true" or "false" and prevents the layout from aligning its children's baselines.
+    3.android:divider= This is drawable to use as a vertical divider between buttons. You use a color value, in the form of "#rgb", "#argb", "#rrggbb", or "#aarrggbb".
+    4.android:gravity= This specifies how an object should position its content, on both the X and Y axes. Possible values are top, bottom, left, right, center, center_vertical, center_horizontal etc.
+    5.android:orientation= This specifies the direction of arrangment and you will use "horizontal" for a row, "vertical" for a column. The default is horizontal.
+
+
+ Example:
+This example will take you through simple steps to show how to create your own Android application using Linear Layout. Follow the following steps to modify the Android application we created in Hello World Example chapter:
+Step Description
+1.You will use Android Studio to create an Android application and name it as HelloWorld under a package com.example.helloworld as explained in the Hello World Example chapter.
+2. Modify the detault content of res/layout/activity_main.xml file to include few buttons in linear layout.
+3. Define required constants start_service, pause_service and stop_service inres/values/strings.xml file
+4. Run the application to launch Android emulator and verify the result of the changes done in the aplication.
+Following is the content of the modified main activity filesrc/com.example.helloworld/MainActivity.java.
+This file can include each of the fundamental lifecycle methods.
+ package com.example.helloworld;
+ import android.os.Bundle;
+ import android.app.Activity;
+ import android.view.Menu;
+ public class MainActivity extends Activity
+ {
+ @Override
+ protected void onCreate(Bundle savedInstanceState)
+ {
+  super.onCreate(savedInstanceState);
+  setContentView(R.layout.activity_main);
+   }
+    @Override
+     public boolean onCreateOptionsMenu(Menu menu) {
+     getMenuInflater().inflate(R.menu.main, menu);
+     return true; }
+      }
+}
+
+
+Following will be the content of res/layout/activity_main.xml file:
+ <?xml version="1.0" encoding="utf-8"?>
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="fill_parent"
+   android:orientation="vertical" >
+    <Button android:id="@+id/btnStartService"
+     android:layout_width="150px"
+     android:layout_height="wrap_content"
+     android:text="@string/start_service"/>
+     <Button android:id="@+id/btnPauseService"
+      android:layout_width="150px"
+      android:layout_height="wrap_content"
+       android:text="@string/pause_service"/>
+       <Button android:id="@+id/btnStopService"
+        android:layout_width="150px"
+        android:layout_height="wrap_content"
+        android:text="@string/stop_service"/>
+        </LinearLayout>
+Following will be the content of res/values/strings.xml to define two new constants:
+
+<?xml version="1.0" encoding="utf-8"?>
+ <resources>
+  <string name="app_name">HelloWorld</string>
+   <string name="action_settings">Settings</string>
+    <string name="start_service">Start</string>
+     <string name="pause_service">Pause</string>
+     <string name="stop_service">Stop</string>
+      </resources>

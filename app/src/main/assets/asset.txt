@@ -1,0 +1,70 @@
+we can't use directly music,videos,richtext data in its pure form.android may convert it into its our form.so to use directly the pure data we use assets.
+here 'AssetManager' class is used to perform this operation.we get the assets data using getAsset() function in our java code.
+first we read that data and perform output operation over it.
+
+Assets Example:
+MainActivity.java file under a package name rippleeffect:-
+package com.example.dell.rippleeffect;
+
+import android.app.Activity;
+import android.content.res.AssetManager;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+/**
+ * Created by dell on 11/13/2016.
+ */
+public class asset extends Activity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activitymain);
+        TextView txtContent = (TextView) findViewById(R.id.ta);
+        AssetManager assetManager = getAssets();
+
+
+// To load text file
+        InputStream input;
+        try {
+            input = assetManager.open("asset.txt");
+            int size = input.available();
+            byte[] buffer = new byte[size];
+            input.read(buffer);
+            input.close();
+// byte buffer into a string
+            String text = new String(buffer);
+            txtContent.setText(text);
+            txtContent.setTextSize(16);
+
+        } catch (IOException e) {
+// TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+}
+
+
+content of activitymain.xml:-
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="hello"
+    android:textStyle="italic"
+    android:textColor="@color/colorAccent"
+    android:id="@+id/ta"/>
+</LinearLayout>
+</ScrollView>

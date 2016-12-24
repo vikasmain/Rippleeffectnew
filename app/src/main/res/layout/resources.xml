@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="10dp"
+           android:id="@+id/t12"
+           android:text="@string/resources"
+           android:textStyle="bold|italic"
+           android:textColor="@color/colorAccent"
+           android:textSize="18dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Organizing Resources"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_below="@+id/t12"
+            android:id="@+id/t13"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/t14"
+            android:textColor="@color/colorAccent"
+            android:text="@string/resources2"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:layout_below="@+id/t13"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accessing Resources"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_below="@+id/t14"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/tac"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/accessresources"
+            android:id="@+id/t15"
+            android:textSize="18dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic"
+            android:layout_below="@+id/tac"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+    </ScrollView>

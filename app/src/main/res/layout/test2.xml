@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:background="#8470ff"
+    android:id="@+id/l11">
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+android:textColor="#ffffff"
+    android:textStyle="bold|italic"
+    android:textSize="23dp"
+    android:id="@+id/t11"
+    android:text="Wait!!!"/>
+</LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="400dp"
+            android:id="@+id/l12"
+            android:layout_below="@+id/l11"
+            android:background="#00ff7f">
+        <TextView
+            android:layout_width="match_parent"
+            android:textColor="#ffffff"
+            android:textSize="23dp"
+            android:id="@+id/t12"
+            android:textStyle="bold|italic"
+
+            android:layout_height="200dp"
+            android:text="Wait!!!"/>
+    </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:id="@+id/l13"
+            android:layout_below="@+id/l12"
+            android:background="#ff4500">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textColor="#ffffff"
+                android:textSize="23dp"
+                android:textStyle="bold|italic"
+
+                android:id="@+id/t13"
+                android:text="Wait!!!"/>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:id="@+id/l14"
+            android:layout_below="@+id/l13"
+            android:background="#da70d6">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:textColor="#ffffff"
+                android:textSize="23dp"
+                android:textStyle="bold|italic"
+
+                android:id="@+id/t14"
+                android:text="Wait!!!"/>
+        </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:id="@+id/l15"
+            android:layout_below="@+id/l14"
+            android:background="#8b7d6b">
+            <TextView
+                android:textColor="#ffffff"
+                android:textSize="23dp"
+                android:id="@+id/t15"
+                android:textStyle="bold|italic"
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:text="Wait!!!"/>
+        </LinearLayout>
+    </RelativeLayout>
+    </ScrollView>

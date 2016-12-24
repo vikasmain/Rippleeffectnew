@@ -1,0 +1,100 @@
+Relative Layout:
+ Android RelativeLayout enables you to specify how child views are positioned relative to each other. The position of each view can be specified as relative to sibling elements or relative to the parent.
+
+ RelativeLayout Attributes:
+ Following are the important attributes specific to RelativeLayout:
+ 1.android:id= This is the ID which uniquely identifies the layout.
+ 2.android:gravity= This specifies how an object should position its content, on both the X and Y axes. Possible values are top, bottom, left, right, center, center_vertical, center_horizontal etc.
+ 3.android:ignoreGravity= This indicates what view should not be affected by gravity. Using RelativeLayout, you can align two elements by right border, or make one below another, centered in the screen, centered left, and so on. By default, all child views are drawn at the top-left of the layout, so you must define the position of each view using the various layout properties available fromRelativeLayout.LayoutParams and few of the important attributes are given below:
+  Description
+ 1.android:layout_above= Positions the bottom edge of this view above the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name"
+ 2.android:layout_alignBottom= Makes the bottom edge of this view match the bottom edge of the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+ 3.android:layout_alignLeft= Makes the left edge of this view match the left edge of the given anchor view ID and must be a reference to another resource, in the form"@[+][package:]type:name".
+ 4.android:layout_alignParentBottom= If true, makes the bottom edge of this view match the bottom edge of the parent. Must be a boolean value, either "true" or "false".
+ 5.android:layout_alignParentEnd= If true, makes the end edge of this view match the end edge of the parent. Must be a boolean value, either "true" or "false".
+ 6.android:layout_alignParentLeft= If true, makes the left edge of this view match the left edge of the parent. Must be a boolean value, either "true" or "false".
+ 7.android:layout_alignParentRight= If true, makes the right edge of this view match the right edge of the parent. Must be a boolean value, either "true" or "false".
+ 8.android:layout_alignParentStart= If true, makes the start edge of this view match the start edge of the parent. Must be a boolean value, either "true" or "false".
+ 9.android:layout_alignParentTop= If true, makes the top edge of this view match the top edge of the parent. Must be a boolean value, either "true" or "false".
+ 10.android:layout_alignRight= Makes the right edge of this view match the right edge of the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+ 11.android:layout_alignStart= Makes the start edge of this view match the start edge of the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+ 12.android:layout_alignTop= Makes the top edge of this view match the top edge of the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+ 13.android:layout_below= Positions the top edge of this view below the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+ 14.android:layout_centerHorizontal= If true, centers this child horizontally within its parent. Must be a boolean value, either "true" or "false".
+ 15.android:layout_centerInParent= If true, centers this child horizontally and vertically within its parent. Must be a boolean value, either "true" or "false".
+ 16.android:layout_toRightOf= Positions the left edge of this view to the right of the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+ 17.android:layout_toStartOf= Positions the end edge of this view to the start of the given anchor view ID and must be a reference to another resource, in the form "@[+][package:]type:name".
+
+Example
+This example will take you through simple steps to show how to create your own Android application using Relative Layout.
+Follow the following steps to modify the Android application we created in Hello World Example chapter: Step
+1. You will use Android Studio to create an Android application and name it as HelloWorld under a package com.example.helloworld as explained in the Hello World Example chapter.
+2. Modify the detault content of res/layout/activity_main.xml file to include few widgets in Relative layout.
+3. Define required constants in res/values/strings.xml file
+4. Run the application to launch Android emulator and verify the result of the changes done in the aplication.
+Following is the content of the modified main activity filesrc/com.example.helloworld/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+package com.example.helloworld;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import android.os.Bundle;
+import android.app.Activity;
+import android.text.format.DateFormat;
+import android.view.Menu;
+import android.widget.TextView;
+ public class MainActivity extends Activity
+  { @Override
+  protected void onCreate(Bundle savedInstanceState)
+   {
+    super.onCreate(savedInstanceState);
+     setContentView(R.layout.activity_main);
+     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+     Date date = new Date(); String nowDate = dateFormat.format(date);
+     TextView dateView = (TextView)findViewById(R.id.dates);
+dateView.setText(nowDate);
+SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
+ String nowTime = timeFormat.format(date);
+  TextView timeView = (TextView)findViewById(R.id.times); timeView.setText(nowTime); }
+   @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+     {
+     // Inflate the menu;
+     getMenuInflater().inflate(R.menu.main, menu);
+     return true;
+     }
+     }
+Following will be the content of res/layout/activity_main.xml file:
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:paddingLeft="16dp"
+android:paddingRight="16dp" >
+<EditText android:id="@+id/name"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:hint="@string/reminder" />
+<TextView android:id="@+id/dates" android:layout_width="0dp"
+ android:layout_height="wrap_content"
+ android:layout_below="@id/name"
+ android:layout_alignParentLeft="true"
+android:layout_toLeftOf="@+id/times" />
+<TextView android:id="@id/times"
+android:layout_width="96dp"
+android:layout_height="wrap_content"
+android:layout_below="@id/name"
+android:layout_alignParentRight="true" />
+<Button android:layout_width="96dp"
+android:layout_height="wrap_content"
+android:layout_below="@id/times"
+android:layout_centerInParent="true"
+android:text="@string/done" />
+</RelativeLayout>
+
+
+Following will be the content of res/values/strings.xml to define two new constants:
+ <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+   <string name="app_name">HelloWorld</string>
+   <string name="action_settings">Settings</string>
+    <string name="reminder">Enter your name</string>
+     <string name="done">Done</string> </resources>

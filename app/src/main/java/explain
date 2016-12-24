@@ -1,0 +1,14 @@
+steps:for creating Navdrawer with tabs(Fragment) and Listview.
+1.first create a DrawerLayout (Left side layout).=<android.support.v4.widget.drawerLayout>
+2.Now create a Main content inside it.(Relative layout).
+3.Now Work on Main content (Profile Box),RelativeLayout contains imageView,2 Textviews and a ListView.for storing in java form we will create a NavItem class which will contains model of our drawer ui like Title,Subtitle,ResIcon etc.this is one NavItem.
+4.Now add more NavItems to the ArrayList of <NavItem> type.for this list create an adapter, name=NavListadapters.
+5.Now this DrawerLayout Activity is our one Activity.so we have to rotate it 360 degree ,so creates fragments inside it.As we wants what would happen after click so creates a fragments list of type ArrayList.
+6.
+7.Now Close the drawer.for <- and -> button use ActionBarDrawerToggle class.
+                                        8.Now comes to the Fragment parts.(Remember this is Drawer fragment)
+9.Implements following interfaces ViewPager.OnPageChangeListener,TabHost.OnTabChangeListener in fragments
+9.Now for creating Tabs Use <TabHost> that will host the tabs and Viewpager.TabHost must contains a TabWidget.Now first create a  HorizontalScrollbar inside it and then a tab widget.thats all now u have for viewpager create a FrameLayout and make a viewpager inside it.that will display the pages of each tabs.so designing part is over.
+10.we used two functions here.this.inittabHost();
+  this.initviewpager();
+

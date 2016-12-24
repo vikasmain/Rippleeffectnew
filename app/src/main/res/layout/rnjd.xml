@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adb"
+        android:id="@+id/button"
+        android:textStyle="bold|italic"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#ffdead"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gradle"
+        android:textStyle="bold|italic"
+
+        android:id="@+id/button2"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#ffdead"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logcat"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#ffdead"
+        android:textStyle="bold|italic"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DDMS"
+        android:id="@+id/button4"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:background="#ffdead"
+        android:textStyle="bold|italic"
+        />
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Distribute your app to the world"
+        android:id="@+id/button5"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold|italic"
+
+        android:background="#ffdead"/>
+</LinearLayout>

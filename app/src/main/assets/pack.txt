@@ -1,0 +1,65 @@
+Packages are containers for classes that are used to keep the class name
+space compartmentalized. For example, a package allows you to create a class
+named List, which you can store in your own package without concern that it will
+collide with some other class named List stored elsewhere. Packages are stored in a
+hierarchical manner and are explicitly imported into new class definitions.
+Packages and interfaces are two of the basic components of a Java program. In
+general, a Java source file can contain any (or all) of the following four internal parts:
+¦ A single package statement (optional)
+¦ Any number of import statements (optional)
+¦ A single public class declaration (required)
+¦ Any number of classes private to the package (optional)
+
+Importing Packages
+Given that packages exist and are a good mechanism for compartmentalizing diverse
+classes from each other, it is easy to see why all of the built-in Java classes are stored in
+packages. There are no core Java classes in the unnamed default package; all of the
+standard classes are stored in some named package. Since classes within packages
+must be fully qualified with their package name or names, it could become tedious to
+type in the long dot-separated package path name for every class you want to use.
+For this reason, Java includes the import statement to bring certain classes, or entire
+packages, into visibility. Once imported, a class can be referred to directly, using only
+its name. The import statement is a convenience to the programmer and is not
+technically needed to write a complete Java program. If you are going to refer to a
+few dozen classes in your application, however, the import statement will save a lot
+of typing.
+In a Java source file, import statements occur immediately following the package
+statement (if it exists) and before any class definitions. This is the general form of the
+import statement:
+import pkg1[.pkg2].(classname|*);
+C h a p t e r 9 : P a c k a g e s a n d I n t e r f a c e s 233
+THE JAVA LANGUAGE
+Here, pkg1 is the name of a top-level package, and pkg2 is the name of a subordinate
+package inside the outer package separated by a dot (.). There is no practical limit on
+the depth of a package hierarchy, except that imposed by the file system. Finally, you
+specify either an explicit classname or a star (*), which indicates that the Java compiler
+should import the entire package. This code fragment shows both forms in use:
+import java.util.Date;
+import java.io.*;
+The star form may increase compilation time—especially if you import several large
+packages. For this reason it is a good idea to explicitly name the classes that you want
+to use rather than importing whole packages. However, the star form has absolutely
+no effect on the run-time performance or size of your classes.
+All of the standard Java classes included with Java are stored in a package called
+java. The basic language functions are stored in a package inside of the java package
+called java.lang. Normally, you have to import every package or class that you want
+to use, but since Java is useless without much of the functionality in java.lang, it is
+implicitly imported by the compiler for all programs. This is equivalent to the following
+line being at the top of all of your programs:
+import java.lang.*;
+If a class with the same name exists in two different packages that you import
+using the star form, the compiler will remain silent, unless you try to use one of the
+classes. In that case, you will get a compile-time error and have to explicitly name
+the class specifying its package.
+
+Using the keyword interface, you can fully abstract a class’ interface from its implementation.
+That is, using interface, you can specify what a class must do, but not how
+it does it. Interfaces are syntactically similar to classes, but they lack instance variables,
+and their methods are declared without any body. In practice, this means that you can
+define interfaces which don’t make assumptions about how they are implemented.
+Once it is defined, any number of classes can implement an interface. Also, one class
+can implement any number of interfaces.
+To implement an interface, a class must create the complete set of methods defined
+by the interface. However, each class is free to determine the details of its own
+implementation. By providing the interface keyword, Java allows you to fully utilize
+the “one interface, multiple methods” aspect of polymorphism.

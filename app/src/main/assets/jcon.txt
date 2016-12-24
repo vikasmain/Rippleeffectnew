@@ -1,0 +1,77 @@
+Java is a high-level, third generation programming language, like C, FORTRAN, Smalltalk, Perl, and many others. You can use Java to write computer applications that play games, store data or do any of the thousands of other things computer software can do. Compared to other programming languages, Java is most similar to C. However although Java shares much of C's syntax, it is not C.
+Java language is called as an Object-Oriented Programming language and before begining for Java, we have to learn the concept of OOPs(Object-Oriented Programming).
+1.2 Basic Concept of OOP(Object-Oriented Programming):
+There are some basic concepts of object oriented programming as follows:
+1. Object
+2. Class
+3. Data abstraction
+4. Data encapsulation
+5. Inheritance
+6. Polymorphism
+7. Dynamic binding
+1. Object
+Objects are important runtime entities in object oriented method. They may characterize a location, a bank account, and a table of data or any entry that the program must handle.
+For example:
+Object: STUDENT
+DATA
+Name
+Address
+Marks
+METHODS
+Total()
+Average()
+each object holds data and code to operate the data. Object can interact without having to identify the details of each other‘s data or code. It is sufficient to identify the type of message received and the type of reply returned by the objects.
+Another example of object is CAR
+Object: CAR
+DATA
+Colour
+Cost
+METHODS
+LockIt()
+DriveIt()
+
+2. Classes
+A class is a set of objects with similar properties (attributes), common behaviour (operations), and common link to other objects. The complete set of data and code of an object can be made a user defined data type with the help of class.
+The objects are variable of type class. A class is a collection of objects of similar type. Classes are user defined data types and work like the build in type of the programming language. Once the class has been defined, we can make any number of objects belonging to that class. Each object is related with the data of type class with which they are formed.
+As we learned that, the classification of objects into various classes is based on its properties (States) and behaviour (methods). Classes are used to distinguish are type of object from another. The important thing about the class is to identify the properties and procedures and applicability to its instances.
+The objects develop their distinctiveness from the difference in their attribute value and relationships to other objects.
+3. Data Abstraction
+Data abstraction refers to the act of representing important description without including the background details or explanations.
+Classes use the concept of abstraction and are defined as a list of abstract attributes such as size, cost and functions operate on these attributes. They summarize all the important properties of the objects that are to be created.
+Classes use the concepts of data abstraction and it is called as Abstract Data Type (ADT).
+4. Data Encapsulation
+Data Encapsulation means wrapping of data and functions into a single unit (i.e. class). It is most useful feature of class. The data is not easy to get to the outside world and only those functions which are enclosed in the class can access it.
+These functions provide the boundary between Object‘s data and program. This insulation of data from direct access by the program is called as Data hiding.
+For example:
+Vehicle
+Car
+MH-01 1234
+COLOUR=Red
+COST=4,00,000
+Data, process/Functions
+Information in Information out
+
+5. Inheritance
+Inheritance is the process by which objects of one class can get the properties of objects of another class. Inheritance means one class of objects inherits the data and behaviours from another class. Inheritance maintains the hierarchical classification in which a class inherits from its parents.
+Inheritance provides the important feature of OOP that is reusability. That means we can include additional characteristics to an existing class without modification. This is possible deriving a new class from existing one.
+In other words, it is property of object-oriented systems that allow objects to be built from other objects. Inheritance allows openly taking help of the commonality of objects when constructing new classes. Inheritance is a relationship between classes where one class is the parent class of another (derived) class. The derived class holds the properties and behaviour of base class in addition to the properties and behaviour of derived class.
+For Example:
+the Santro is a part of the class Hyundai which is again part of the class car and car is the part of the class vehicle. That means vehicle class is the parent class.
+6. Polymorphism
+
+(Poly means ?many? and morph means ?form?). Polymorphism means the ability to take more than one form. Polymorphism plays a main role in allocate objects having different internal structures to share the same external interface. This means that a general class of operations may be accessed in the same manner even though specific activities associated with each operation may differ. Polymorphism is broadly used in implementing inheritance.
+It means objects that can take on or assume many different forms. Polymorphism means that the same operations may behave differently on different classes. Booch defines polymorphism as the relationship of objects many different classes by some common super class. Polymorphism allows us to write generic, reusable code more easily, because we can specify general instructions and delegate the implementation detail to the objects involved.
+For Example:
+In a pay roll system, manager, office staff and production worker objects all will respond to the compute payroll message, but the real operations performed are object particular.
+JAVA Features:
+As we know that the Java is an object oriented programming language developed by Sun Microsystems of USA in 1991. Java is first programming language which is not attached with any particular hardware or operating system. Program developed in Java can be executed anywhere and on any system.
+Features of Java are as follows:
+1. Compiled and Interpreted
+2. Platform Independent and portable
+3. Object- oriented
+4. Robust and secure
+5. Distributed
+6. Familiar, simple and small
+7. Multithreaded and Interactive
+8. High performance
+9. Dynamic and Extensible

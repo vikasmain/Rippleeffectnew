@@ -1,0 +1,311 @@
+Constructor in Java:
+
+Types of constructors:
+1.Default Constructor
+2.Parameterized Constructor
+3.Constructor Overloading
+Does constructor return any value?
+Copying the values of one object into another
+Does constructor perform other task instead initialization
+Constructor in java is a special type of method that is used to initialize the object.
+
+Java constructor is invoked at the time of object creation. It constructs the values i.e. provides data for the object that is why it is known as constructor.
+
+Rules for creating java constructor
+
+There are basically two rules defined for the constructor.
+
+Constructor name must be same as its class name
+Constructor must have no explicit return type
+Types of java constructors
+
+There are two types of constructors:
+
+Default constructor (no-arg constructor)
+Parameterized constructor
+java constructor
+Java Default Constructor
+
+A constructor that have no parameter is known as default constructor.
+Syntax of default constructor:
+
+<class_name>(){}  
+<class_name>(){}  
+Example of default constructor
+
+In this example, we are creating the no-arg constructor in the Bike class. It will be invoked at the time of object creation.
+class Bike1{  
+Bike1(){System.out.println("Bike is created");}  
+public static void main(String args[]){  
+Bike1 b=new Bike1();  
+}  
+}  
+class Bike1{  
+Bike1(){System.out.println("Bike is created");}  
+public static void main(String args[]){  
+Bike1 b=new Bike1();  
+}  
+}  
+Test it Now
+Output:
+
+Bike is created
+Rule: If there is no constructor in a class, compiler automatically creates a default constructor.
+
+default constructor
+Q) What is the purpose of default constructor?
+
+Default constructor provides the default values to the object like 0, null etc. depending on the type.
+
+Example of default constructor that displays the default values
+
+class Student3{  
+int id;  
+String name;  
+  
+void display(){System.out.println(id+" "+name);}  
+  
+public static void main(String args[]){  
+Student3 s1=new Student3();  
+Student3 s2=new Student3();  
+s1.display();  
+s2.display();  
+}  
+}  
+class Student3{  
+int id;  
+String name;  
+  
+void display(){System.out.println(id+" "+name);}  
+  
+public static void main(String args[]){  
+Student3 s1=new Student3();  
+Student3 s2=new Student3();  
+s1.display();  
+s2.display();  
+}  
+}  
+Test it Now
+Output:
+
+0 null
+0 null
+Explanation:In the above class,you are not creating any constructor so compiler provides you a default constructor.Here 0 and null values are provided by default constructor.
+
+Java parameterized constructor
+
+A constructor that have parameters is known as parameterized constructor.
+Why use parameterized constructor?
+
+Parameterized constructor is used to provide different values to the distinct objects.
+Example of parameterized constructor
+
+In this example, we have created the constructor of Student class that have two parameters. We can have any number of parameters in the constructor.
+class Student4{  
+    int id;  
+    String name;  
+      
+    Student4(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student4 s1 = new Student4(111,"Karan");  
+    Student4 s2 = new Student4(222,"Aryan");  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+class Student4{  
+    int id;  
+    String name;  
+      
+    Student4(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student4 s1 = new Student4(111,"Karan");  
+    Student4 s2 = new Student4(222,"Aryan");  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+Test it Now
+Output:
+
+111 Karan
+222 Aryan
+Constructor Overloading in Java
+
+Constructor overloading is a technique in Java in which a class can have any number of constructors that differ in parameter lists.The compiler differentiates these constructors by taking into account the number of parameters in the list and their type.
+Example of Constructor Overloading
+
+class Student5{  
+    int id;  
+    String name;  
+    int age;  
+    Student5(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    Student5(int i,String n,int a){  
+    id = i;  
+    name = n;  
+    age=a;  
+    }  
+    void display(){System.out.println(id+" "+name+" "+age);}  
+   
+    public static void main(String args[]){  
+    Student5 s1 = new Student5(111,"Karan");  
+    Student5 s2 = new Student5(222,"Aryan",25);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+class Student5{  
+    int id;  
+    String name;  
+    int age;  
+    Student5(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    Student5(int i,String n,int a){  
+    id = i;  
+    name = n;  
+    age=a;  
+    }  
+    void display(){System.out.println(id+" "+name+" "+age);}  
+   
+    public static void main(String args[]){  
+    Student5 s1 = new Student5(111,"Karan");  
+    Student5 s2 = new Student5(222,"Aryan",25);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+Test it Now
+Output:
+
+111 Karan 0
+222 Aryan 25
+Difference between constructor and method in java
+
+There are many differences between constructors and methods. They are given below.
+
+Java Constructor	Java Method
+Constructor is used to initialize the state of an object.	Method is used to expose behaviour of an object.
+Constructor must not have return type.	Method must have return type.
+Constructor is invoked implicitly.	Method is invoked explicitly.
+The java compiler provides a default constructor if you don't have any constructor.	Method is not provided by compiler in any case.
+Constructor name must be same as the class name.	Method name may or may not be same as class name.
+Java Copy Constructor
+
+There is no copy constructor in java. But, we can copy the values of one object to another like copy constructor in C++.
+
+There are many ways to copy the values of one object into another in java. They are:
+
+By constructor
+By assigning the values of one object into another
+By clone() method of Object class
+In this example, we are going to copy the values of one object into another using java constructor.
+
+class Student6{  
+    int id;  
+    String name;  
+    Student6(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+      
+    Student6(Student6 s){  
+    id = s.id;  
+    name =s.name;  
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student6 s1 = new Student6(111,"Karan");  
+    Student6 s2 = new Student6(s1);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+class Student6{  
+    int id;  
+    String name;  
+    Student6(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+      
+    Student6(Student6 s){  
+    id = s.id;  
+    name =s.name;  
+    }  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student6 s1 = new Student6(111,"Karan");  
+    Student6 s2 = new Student6(s1);  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+Test it Now
+Output:
+
+111 Karan
+111 Karan
+Copying values without constructor
+
+We can copy the values of one object into another by assigning the objects values to another object. In this case, there is no need to create the constructor.
+
+class Student7{  
+    int id;  
+    String name;  
+    Student7(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    Student7(){}  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student7 s1 = new Student7(111,"Karan");  
+    Student7 s2 = new Student7();  
+    s2.id=s1.id;  
+    s2.name=s1.name;  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+class Student7{  
+    int id;  
+    String name;  
+    Student7(int i,String n){  
+    id = i;  
+    name = n;  
+    }  
+    Student7(){}  
+    void display(){System.out.println(id+" "+name);}  
+   
+    public static void main(String args[]){  
+    Student7 s1 = new Student7(111,"Karan");  
+    Student7 s2 = new Student7();  
+    s2.id=s1.id;  
+    s2.name=s1.name;  
+    s1.display();  
+    s2.display();  
+   }  
+}  
+Test it Now
+Output:
+
+111 Karan
+111 Karan

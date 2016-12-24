@@ -1,0 +1,86 @@
+GridView:
+Android GridView shows items in two-dimensional scrolling grid (rows & columns) and the grid items are not necessarily predetermined but they automatically inserted to the layout using a ListAdapter An adapter actually bridges between UI components and the data source that fill data into UI Component. Adapter can be used to supply the data to like spinner, list view, grid view etc. The ListView and GridView are subclasses of AdapterView and they can be populated by binding them to an Adapter, which retrieves data from an external source and creates a View that represents each data entry.
+ GridView Attributes
+ Following are the important attributes specific to GridView:
+ 1.android:id= This is the ID which uniquely identifies the layout.
+ 2.android:columnWidth= This specifies the fixed width for each column. This could be in px, dp, sp, in, or mm.
+ 3.android:gravity= Specifies the gravity within each cell. Possible values are top, bottom, left, right, center, center_vertical, center_horizontal etc.
+ 4.android:horizontalSpacing= Defines the default horizontal spacing between columns. This could be in px, dp, sp, in, or mm.
+ 5.android:numColumns= Defines how many columns to show. May be an integer value, such as "100" or auto_fit which means display as many columns as possible to fill the available space.
+ 6.android:stretchMode= Defines how columns should stretch to fill the available empty space, if any.
+ This must be either of the values: ? none: Stretching is disabled. ? spacingWidth: The spacing between each column is stretched. ? columnWidth: Each column is stretched equally. ? spacingWidthUniform: The spacing between each column is uniformly stretched..
+ 7.android:verticalSpacing= Defines the default vertical spacing between rows. This could be in px, dp, sp, in, or mm. Example This example will take you through simple steps to show how to create your own Android application using GridView.
+ Follow the following steps to modify the Android application we created in Hello World Example chapter:
+  Steps
+   1. You will use Eclipse IDE to create an Android application and name it as HelloWorld under a package com.example.helloworld as explained in the Hello World Example chapter.
+   2. Modify the detault content of res/layout/activity_main.xml file to include GridView content with the self explanatory attributes.
+   3. Define required constants in res/values/strings.xml file.
+   4. Let's put few pictures in res/drawable-hdpi folder. I have put sample0.jpg, sample1.jpg, sample2.jpg, sample3.jpg, sample4.jpg, sample5.jpg, sample6.jpg and sample7.jpg.
+   5. Create a new class called ImageAdapter under a package com.example.helloworld that extends BaseAdapter. This class will implement functionality of an adaptor to be used to fill the view.
+   6. Run the application to launch Android emulator and verify the result of the changes done in the aplication.
+
+
+   Following is the content of the modified main activity filesrc/com.example.helloworld/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+   package com.example.helloworld;
+   import android.os.Bundle;
+   import android.app.Activity;
+   import android.view.Menu;
+   import android.widget.GridView;
+   public class MainActivity extends Activity
+   { @Override
+
+protected void onCreate(Bundle savedInstanceState)
+{ super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+ GridView gridview = (GridView) findViewById(R.id.gridview);
+ gridview.setAdapter(new ImageAdapter(this)); }
+ @Override
+ public boolean onCreateOptionsMenu(Menu menu)
+  {
+  getMenuInflater().inflate(R.menu.main, menu);
+  return true; }
+  }
+ Following will be the content of res/layout/activity_main.xml file:
+ <?xml version="1.0" encoding="utf-8"?>
+ <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+ android:id="@+id/gridview"
+ android:layout_width="fill_parent"
+ android:layout_height="fill_parent"
+ android:columnWidth="90dp" android:numColumns="auto_fit"
+ android:verticalSpacing="10dp"
+ android:horizontalSpacing="10dp"
+ android:stretchMode="columnWidth"
+ android:gravity="center" />
+ Following will be the content of res/values/strings.xml to define two new constants:
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+<string name="app_name">HelloWorld</string>
+<string name="action_settings">Settings</string>
+</resources>
+
+
+Following will be the content of src/com.example.helloworld/ImageAdapter.java file:
+package com.example.helloworld;
+import android.content.Context; import android.view.View; import android.view.ViewGroup;
+import android.widget.BaseAdapter; import android.widget.GridView;
+import android.widget.ImageView;
+public class ImageAdapter extends BaseAdapter
+ {
+  private Context mContext;
+  // Constructor public ImageAdapter(Context c)
+   { mContext = c; }
+   public int getCount() { return mThumbIds.length; }
+    public Object getItem(int position) { return null; }
+    public long getItemId(int position) { return 0; }
+// create a new ImageView for each item referenced by the Adapter
+public View getView(int position, View convertView, ViewGroup parent)
+{ ImageView imageView;
+if (convertView == null)
+{ imageView = new ImageView(mContext);
+ imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+ imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+ imageView.setPadding(8, 8, 8, 8); }
+ else { imageView = (ImageView) convertView; }
+ imageView.setImageResource(mThumbIds[position]);
+ return imageView; } // Keep all Images in array
+ public Integer[] mThumbIds = { R.drawable.sample_2, R.drawable.sample_3, R.drawable.sample_4, R.drawable.sample_5, R.drawable.sample_6, R.drawable.sample_7, R.drawable.sample_0, R.drawable.sample_1, R.drawable.sample_2, R.drawable.sample_3, R.drawable.sample_4, R.drawable.sample_5, R.drawable.sample_6, R.drawable.sample_7, R.drawable.sample_0, R.drawable.sample_1, R.drawable.sample_2, R.drawable.sample_3, R.drawable.sample_4, R.drawable.sample_5, R.drawable.sample_6, R.drawable.sample_7 }; }

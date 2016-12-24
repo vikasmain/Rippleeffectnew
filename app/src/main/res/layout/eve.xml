@@ -1,0 +1,31 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffdead">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="hello"
+            android:id="@+id/txtContent2"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:padding="10dp"
+            />
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ev"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:textSize="15dp"
+            android:text="Now you try to click on two buttons one by one and you will see that font of the Hello World text will change, which happens because registered click event handler method is being called against each click event."/>
+    </LinearLayout>
+</ScrollView>

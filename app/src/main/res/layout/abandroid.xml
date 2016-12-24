@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:background="#ffdead">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:weightSum="1">
+<ImageView
+    android:layout_width="463dp"
+    android:layout_height="843dp"
+    android:src="@drawable/pack"
+    android:layout_weight="0.11" />
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="19dp"
+    android:textColor="@color/colorAccent"
+    android:text="@string/abandroid"
+    android:textStyle="bold|italic"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/th3"
+        android:id="@+id/th1"
+        android:textStyle="italic"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:text="Folders,Files,Descriptions"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/th5"
+        android:textSize="18dp"
+        android:textColor="@color/colorAccent"
+        android:layout_below="@+id/th1"
+        android:text="@string/hello2"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"/>
+    <com.google.android.gms.ads.AdView android:layout_height="wrap_content" android:layout_width="match_parent"
+        android:id="@+id/ad_view" ads:adUnitId="@string/banner_ad_unit_id" ads:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/t9"
+        />
+</LinearLayout>
+    </ScrollView>

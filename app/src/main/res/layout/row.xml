@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout android:orientation="vertical" android:padding="4dp" android:layout_height="wrap_content"
+    android:layout_width="match_parent" android:id="@+id/LinearLayout1"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tvName"
+        android:textAppearance="?android:attr/textAppearanceLarge" android:textColor="#166CED" android:text="Tom Cruise"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        />
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/tvdob"
+        android:autoLink="web"
+        android:textColor="#D64530"
+
+        android:text="jdjfdnd  hbcn  chd hcbd ch vikas aysyas ais a great guy do u want to say something abotu that of yes than you can take me into the fire yes you can?"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold|italic"
+        android:textSize="18dp"/>
+
+</LinearLayout>

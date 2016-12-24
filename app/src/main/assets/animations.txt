@@ -1,0 +1,371 @@
+Animation is the process of creating motion and shape change
+
+Animation in android is possible from many ways. In this chapter we will discuss one easy and widely used way of making animation called tweened animation.
+
+Tween Animation
+Tween Animation takes some parameters such as start value , end value, size , time duration , rotation angle e.t.c and perform the required animation on that object. It can be applied to any type of object. So in order to use this , android has provided us a class called Animation.
+
+In order to perform animation in android , we are going to call a static function loadAnimation() of the class AnimationUtils. We are going to receive the result in an instance of Animation Object. Its syntax is as follows -
+
+Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.myanimation);
+Note the second parameter. It is the name of the our animation xml file. You have to create a new folder called anim under res directory and make an xml file under anim folder.
+
+This animation class has many useful functions which are listed below:
+
+Sr.No	Method & Description
+1	start()
+This method starts the animation.
+
+2	setDuration(long duration)
+This method sets the duration of an animation.
+
+3	getDuration()
+This method gets the duration which is set by above method
+
+4	end()
+This method ends the animation.
+
+5	cancel()
+This method cancels the animation.
+
+In order to apply this animation to an object , we will just call the startAnimation() method of the object. Its syntax is -
+
+ImageView image1 = (ImageView)findViewById(R.id.imageView1);
+image.startAnimation(animation);
+Example
+The following example demonstrates the use of Animation in android. You would be able to choose different type of animation from the menu and the selected animation will be applied on an imageView on the screen.
+
+To experiment with this example , you need to run this on an emulator or an actual device.
+
+Steps	Description
+1	You will use Android studio IDE to create an Android application and name it as My Application under a package com.example.sairamkrishna.myapplication. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs.
+2	Modify src/MainActivity.java file to add animation code
+3	Modify layout XML file res/layout/activity_main.xml add any GUI component if required.
+4	Create a new folder under res directory and call it anim. Confim it by visiting res/anim
+5	Right click on anim and click on new and select Android XML file You have to create different files that are listed below.
+6	Create files myanimation.xml,clockwise.xml,fade.xml,move.xml,blink.xml,slide.xml and add the XML code.
+7	No need to change default string constants. Android studio takes care of default constants at values/string.xml.
+8	Run the application and choose a running android device and install the application on it and verify the results.
+Here is the modified code of MainActivity.java.
+
+package com.example.sairamkrishna.myapplication;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+public class MainActivity extends Activity {
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+   }
+   
+   public void clockwise(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.myanimation);
+      image.startAnimation(animation);
+   }
+   
+   public void zoom(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.clockwise);
+      image.startAnimation(animation1);
+   }
+   
+   public void fade(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade);
+      image.startAnimation(animation1);
+   }
+   
+   public void blink(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+      image.startAnimation(animation1);
+   }
+   
+   public void move(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
+      image.startAnimation(animation1);
+   }
+   
+   public void slide(View view){
+      ImageView image = (ImageView)findViewById(R.id.imageView);
+      Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.slide);
+      image.startAnimation(animation1);
+   }
+   
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      // Inflate the menu; this adds items to the action bar if it is present.
+      getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }
+   
+   @Override
+   public boolean onOptionsItemSelected(MenuItem item) {
+      // Handle action bar item clicks here. The action bar will
+      // automatically handle clicks on the Home/Up button, so long
+      // as you specify a parent activity in AndroidManifest.xml.
+      
+      int id = item.getItemId();
+      
+      //noinspection SimplifiableIfStatement
+      if (id == R.id.action_settings) {
+         return true;
+      }
+      return super.onOptionsItemSelected(item);
+   }
+}
+Here is the modified code of res/layout/activity_main.xml.
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+   android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+   
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Alert Dialog"
+      android:id="@+id/textView"
+      android:textSize="35dp"
+      android:layout_alignParentTop="true"
+      android:layout_centerHorizontal="true" />
+      
+   <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Tutorialspoint"
+      android:id="@+id/textView2"
+      android:textColor="#ff3eff0f"
+      android:textSize="35dp"
+      android:layout_below="@+id/textView"
+      android:layout_centerHorizontal="true" />
+      
+   <ImageView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/imageView"
+      android:src="@drawable/logo"
+      android:layout_below="@+id/textView2"
+      android:layout_alignRight="@+id/textView2"
+      android:layout_alignEnd="@+id/textView2"
+      android:layout_alignLeft="@+id/textView"
+      android:layout_alignStart="@+id/textView"/>
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="zoom"
+      android:id="@+id/button"
+      android:layout_below="@+id/imageView"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true"
+      android:layout_marginTop="40dp"
+      android:onClick="clockwise"/>
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="clockwise"
+      android:id="@+id/button2"
+      android:layout_alignTop="@+id/button"
+      android:layout_centerHorizontal="true"
+      android:onClick="zoom"/>
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="fade"
+      android:id="@+id/button3"
+      android:layout_alignTop="@+id/button2"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentEnd="true"
+      android:onClick="fade"/>
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="blink"
+      android:onClick="blink"
+      android:id="@+id/button4"
+      android:layout_below="@+id/button"
+      android:layout_alignParentLeft="true"
+      android:layout_alignParentStart="true" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="move"
+      android:onClick="move"
+      android:id="@+id/button5"
+      android:layout_below="@+id/button2"
+      android:layout_alignRight="@+id/button2"
+      android:layout_alignEnd="@+id/button2"
+      android:layout_alignLeft="@+id/button2"
+      android:layout_alignStart="@+id/button2" />
+      
+   <Button
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="slide"
+      android:onClick="slide"
+      android:id="@+id/button6"
+      android:layout_below="@+id/button3"
+      android:layout_toRightOf="@+id/textView"
+      android:layout_toEndOf="@+id/textView" />
+      
+</RelativeLayout>
+Here is the code of res/anim/myanimation.xml.
+
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <scale xmlns:android="http://schemas.android.com/apk/res/android"
+      android:fromXScale="0.5"
+      android:toXScale="3.0"
+      android:fromYScale="0.5"
+      android:toYScale="3.0"
+      android:duration="5000"
+      android:pivotX="50%"
+      android:pivotY="50%" >
+   </scale>
+   
+   <scale xmlns:android="http://schemas.android.com/apk/res/android"
+      android:startOffset="5000"
+      android:fromXScale="3.0"
+      android:toXScale="0.5"
+      android:fromYScale="3.0"
+      android:toYScale="0.5"
+      android:duration="5000"
+      android:pivotX="50%"
+      android:pivotY="50%" >
+   </scale>
+   
+</set>
+Here is the code of res/anim/clockwise.xml.
+
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+   <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+      android:fromDegrees="0"
+      android:toDegrees="360"
+      android:pivotX="50%"
+      android:pivotY="50%"
+      android:duration="5000" >
+   </rotate>
+   
+   <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+      android:startOffset="5000"
+      android:fromDegrees="360"
+      android:toDegrees="0"
+      android:pivotX="50%"
+      android:pivotY="50%"
+      android:duration="5000" >
+   </rotate>
+   
+</set>
+Here is the code of res/anim/fade.xml.
+
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+   android:interpolator="@android:anim/accelerate_interpolator" >
+   
+   <alpha
+      android:fromAlpha="0"
+      android:toAlpha="1" 
+      android:duration="2000" >
+   </alpha>
+   
+   <alpha
+      android:startOffset="2000"
+      android:fromAlpha="1"
+      android:toAlpha="0" 
+      android:duration="2000" >
+   </alpha>
+   
+</set>
+Here is the code of res/anim/blink.xml.
+
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+   <alpha android:fromAlpha="0.0"
+      android:toAlpha="1.0"
+      android:interpolator="@android:anim/accelerate_interpolator"
+      android:duration="600"
+      android:repeatMode="reverse"
+      android:repeatCount="infinite"/>
+</set>
+Here is the code of res/anim/move.xml.
+
+<?xml version="1.0" encoding="utf-8"?>
+<set
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:interpolator="@android:anim/linear_interpolator"
+   android:fillAfter="true">
+   
+   <translate
+      android:fromXDelta="0%p"
+      android:toXDelta="75%p"
+      android:duration="800" />
+</set>
+Here is the code of res/anim/slide.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+   android:fillAfter="true" >
+   
+   <scale
+      android:duration="500"
+      android:fromXScale="1.0"
+      android:fromYScale="1.0"
+      android:interpolator="@android:anim/linear_interpolator"
+      android:toXScale="1.0"
+      android:toYScale="0.0" />
+</set>
+Here is the modified code of res/values/string.xml.
+
+<resources>
+   <string name="app_name">My Application</string>
+   <string name="hello_world">Hello world!</string>
+   <string name="action_settings">Settings</string>
+</resources>
+Here is the default code of AndroidManifest.xml.
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.sairamkrishna.myapplication"
+   android:versionCode="1"
+   android:versionName="1.0" >
+
+   <application
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme" >
+      
+      <activity
+         android:name="com.example.animation.MainActivity"
+         android:label="@string/app_name" >
+      
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      
+    </activity>
+    
+   </application>
+</manifest>

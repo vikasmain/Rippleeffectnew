@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:text="Intents"
+    android:textStyle="bold"
+    android:textColor="@color/colorPrimary"
+    android:textSize="20dp"
+    android:id="@+id/ti2"
+    android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti1"
+            android:layout_below="@+id/ti2"
+            android:text="@string/intent"
+android:textColor="@color/colorAccent"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti3"
+            android:layout_below="@+id/ti1"
+            android:text="Intents Objects"
+            android:textSize="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti4"
+            android:layout_below="@+id/ti3"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/intentobject"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti6"
+            android:layout_below="@+id/ti4"
+            android:text="Types Of Intents"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti7"
+            android:layout_below="@+id/ti6"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/intenttype"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti8"
+            android:layout_below="@+id/ti7"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Intents Filters"
+            android:textColor="@color/colorPrimary"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ti9"
+            android:layout_below="@+id/ti8"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:textColor="@color/colorAccent"
+            android:text="@string/filters"/>
+
+    </RelativeLayout>
+
+</ScrollView>
+</LinearLayout>

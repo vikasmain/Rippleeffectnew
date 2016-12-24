@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/helloworld"
+            android:textStyle="bold|italic"
+            android:id="@+id/t11"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/im1"
+            android:layout_below="@+id/t11"
+            android:src="@drawable/studio9"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/im2"
+            android:layout_below="@+id/im1"
+            android:text="Name your application"
+            android:textSize="20dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/colorAccent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/im5"
+            android:layout_below="@+id/im2"
+            android:src="@drawable/name"
+            />
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Now choose Blank Activity"
+    android:textSize="20dp"
+    android:id="@+id/tlgt"
+    android:layout_marginTop="10dp"
+    android:textStyle="bold|italic"
+
+    android:layout_below="@+id/im5"
+    android:textColor="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/im4"
+            android:layout_below="@+id/tlgt"
+            android:layout_marginTop="10dp"
+            android:text="Name your activity"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold|italic"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello world App has been created Successfully....."
+            android:textStyle="bold|italic"
+            android:id="@+id/tehu"
+            android:padding="5dp"
+            android:textSize="18dp"
+            android:layout_below="@+id/im4"
+            android:textColor="@color/colorAccent"
+            />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+android:layout_below="@+id/tehu"
+    android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/thrun"
+            android:text="Run Your App"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:layout_gravity="center"
+
+            android:textColor="@color/colorAccent"
+            android:layout_centerHorizontal="true"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/thrun2"
+            android:src="@drawable/run"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/terun3"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:text="We are running our app on Emulator here."/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose the Emuator where you want to run your application"
+            android:id="@+id/tech1"
+            android:textSize="18dp"
+            android:textColor="@color/colorAccent"
+/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/teav"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:textColor="@color/colorAccent"
+            android:text="@string/gra"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/textv2"
+            android:id="@+id/hel"
+            android:layout_below="@+id/teav"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/thlo"
+            android:layout_below="@+id/hel"
+            android:textSize="18dp"
+            android:text="Congrats!! you have Launched your first app on emulator.."
+            android:textStyle="bold"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Now Run(Launch) on Real device"
+            android:id="@+id/terun5"
+            android:textColor="@color/colorAccent"
+            android:textSize="18dp"
+            android:padding="10dp"
+
+            android:textAlignment="center"
+            android:textStyle="bold|italic"
+            android:layout_below="@+id/thlo"/>
+
+</LinearLayout>
+    </RelativeLayout>
+</ScrollView>

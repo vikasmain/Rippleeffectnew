@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/archite"
+            android:textStyle="bold|italic"
+            android:textSize="18dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tarc"
+            android:textColor="@color/colorAccent"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arc"
+            android:id="@+id/ima1"
+            android:layout_below="@+id/tarc"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ta1"
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+            android:layout_below="@+id/ima1"
+            android:text="Components of Android Architecture:-\nLinux\nAndroid Libraries\nAndroid Framework\nApplications\nAndroid Runtime"/>
+    </RelativeLayout>
+
+</ScrollView>
+</RelativeLayout>

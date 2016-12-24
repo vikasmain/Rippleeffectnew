@@ -1,0 +1,64 @@
+Table Layout:
+Android TableLayout groups views into rows and columns. You will use the <TableRow> element to build a row in the table.
+Each row has zero or more cells; each cell can hold one View object. TableLayout containers do not display border lines for their rows, columns, or cells.
+            TableLayout Attributes:
+Following are the important attributes specific to TableLayout:
+1.android:id= This is the ID which uniquely identifies the layout.
+2.android:collapseColumns= This specifies the zero-based index of the columns to collapse. The column indices must be separated by a comma: 1, 2, 5. The zero-based index of the columns to shrink. The column indices must be separated by a comma: 1, 2, 5.
+3.android:stretchColumns= The zero-based index of the columns to stretch. The column indices must be separated by a comma: 1, 2, 5.
+Example:
+This example will take you through simple steps to show how to create your own Android application using Table Layout.
+Follow the following steps to modify the Android application we created in Hello World Example chapter:
+Steps
+1. You will use Android Studio to create an Android application and name it as HelloWorld under a package com.example.helloworld as explained in the Hello World Example chapter.
+2. Modify the detault content of res/layout/activity_main.xml file to include few widgets in table layout.
+3. Define required constants in res/values/strings.xml file
+4. Run the application to launch Android emulator and verify the result of the changes done in the aplication.
+Following is the content of the modified main activity filesrc/com.example.helloworld/MainActivity.java. This file can include each of the fundamental lifecycle methods.
+package com.example.helloworld;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+public class MainActivity extends Activity
+{
+@Override
+protected void onCreate(Bundle savedInstanceState)
+{
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+ }
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu)
+   {
+   getMenuInflater().inflate(R.menu.main, menu); return true;
+    }
+     }
+
+
+Following will be the content of res/layout/activity_main.xml file:
+ <TableLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="fill_parent"
+ android:layout_height="fill_parent">
+ <TableRow> <Button android:id="@+id/backbutton" android:text="Back" android:layout_width="wrap_content"
+ android:layout_height="wrap_content" />
+ </TableRow>
+  <TableRow>
+  <TextView android:text="First Name" android:layout_width="wrap_content"
+  android:layout_height="wrap_content" android:layout_column="1" />
+  <EditText android:width="100px" android:layout_width="wrap_content"
+  android:layout_height="wrap_content" /> </TableRow>
+  <TableRow>
+  <TextView android:text="Last Name" android:layout_width="wrap_content"
+  android:layout_height="wrap_content" android:layout_column="1" />
+  <EditText android:width="100px" android:layout_width="wrap_content"
+  android:layout_height="wrap_content" />
+   </TableRow>
+   </TableLayout>
+
+
+
+Following will be the content of res/values/strings.xml to define two new constants:
+ <?xml version="1.0" encoding="utf-8"?>
+ <resources>
+ <string name="app_name">HelloWorld</string>
+ <string name="action_settings">Settings</string>
+ </resources>

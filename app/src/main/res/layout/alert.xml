@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    android:background="#ffdead">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="hello"
+    android:textStyle="bold|italic"
+    android:textSize="19dp"
+    android:textColor="@color/colorAccent"
+    android:id="@+id/ta"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OUTPUT"
+        android:textStyle="bold|italic"
+        android:id="@+id/toutput"
+        android:layout_marginTop="10dp"
+        android:textSize="18dp"
+        android:layout_below="@+id/ta"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imad"
+        android:src="@drawable/alert"
+        android:layout_below="@+id/toutput"/>
+    <com.google.android.gms.ads.AdView android:layout_height="wrap_content" android:layout_width="match_parent"
+        android:id="@+id/ad_view" ads:adUnitId="@string/banner_ad_unit_id" ads:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imad"
+        />
+</RelativeLayout>
+    </ScrollView>

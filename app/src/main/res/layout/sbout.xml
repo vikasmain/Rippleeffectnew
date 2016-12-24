@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/aboutus"
+    android:textStyle="bold|italic"
+    android:textColor="@color/colorAccent"
+    android:textSize="18dp"
+    android:id="@+id/t1"
+    android:padding="10dp"/>
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/about2"
+    android:layout_marginTop="10dp"
+    android:textSize="18dp"
+    android:textStyle="bold|italic"
+    android:textColor="@color/colorAccent"
+    android:id="@+id/t4"
+android:layout_below="@+id/t1"
+    android:layout_gravity="center_horizontal"    />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mail Me"
+        android:id="@+id/sendemail"
+        android:background="#ffdead"
+        android:layout_below="@+id/t4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Follow me on github:-"
+        android:textStyle="bold|italic"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/t2"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/sendemail"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:text="@string/url"
+        android:textSize="18dp"
+        android:autoLink="web"
+        android:layout_below="@+id/t2"
+        android:id="@+id/t9"
+        />
+
+    <com.google.android.gms.ads.AdView android:layout_height="wrap_content" android:layout_width="match_parent"
+        android:id="@+id/ad_view" ads:adUnitId="@string/banner_ad_unit_id" ads:adSize="BANNER"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/t9"
+        />
+</RelativeLayout>
+    </ScrollView>

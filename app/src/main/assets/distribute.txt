@@ -1,0 +1,7 @@
+Android Application publishing is a process that makes your Android applications available to users. Infact, publishing is the last phase of the Android application development process.
+Design Coding Testing Publish
+Once you developed and fully tested your Android Application, you can start selling or distributing free using Google Play (A famous Android marketplace). You can also release your applications by sending them directly to users or by letting users download them from your own website. You can check a detailed publishing process at Android official website, but this tutorial will take you through simple steps to launch your application on Google Play.
+Google Play Registration:-
+
+The most important step is to register with Google Play using Google Play Marketplace. You can use your existing google ID if you have any otherwise you can create a new Google ID and then register with the marketplace. You will have following screen to accept terms and condition.
+You can use Continue to payment button to proceed to make a payment of $25 as a registration fee and finally to complete your account detail. Once you are a registered user at Google Play, you can upload release-ready APK for your application and finally you will complete application detail using application detail page as mentioned in step 9 of the above mentioned checklist.

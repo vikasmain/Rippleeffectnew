@@ -1,0 +1,136 @@
+Spinner allows you to select an item from a drop down menu
+
+For example. When you are using Gmail application you would get drop down menu as shown below, you need to select an item from a drop down menu.
+
+
+SPINNER EXAMPLE
+
+This example demonstrates the category of computers, you need to select a category from the category.
+
+To experiment with this example, you need to run this on an actual device on after developing the application according to the steps below.
+
+Steps	Description
+1	You will use Android studio to create an Android application and name it as AndroidSpinnerExample under a package com.example.spinner. While creating this project, make sure you Target SDK and Compile With at the latest version of Android SDK to use higher levels of APIs.
+2	Modify src/AndroidSpinnerExampleActivity.java file to create a simple list view with items which are showing as spinner items
+3	Modify res/layout/activity_main.xml file to add respective XML code.
+4	No need to define default string constants. Android studio takes care of default string constants at string.xml
+5	Run the application and choose a running android device and install the application on it and verify the results.
+Following is the content of the modified main activity file src/com.example.spinner/AndroidSpinnerExampleActivity.java.
+
+package com.example.spinner;
+
+import java.util.ArrayList;
+import java.util.List; 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+ 
+public class AndroidSpinnerExampleActivity extends Activity implements OnItemSelectedListener{
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.main);
+      
+      // Spinner element
+      Spinner spinner = (Spinner) findViewById(R.id.spinner);
+      
+      // Spinner click listener
+      spinner.setOnItemSelectedListener(this);
+      
+      // Spinner Drop down elements
+      List<String> categories = new ArrayList<String>();
+      categories.add("Automobile");
+      categories.add("Business Services");
+      categories.add("Computers");
+      categories.add("Education");
+      categories.add("Personal");
+      categories.add("Travel");
+      
+      // Creating adapter for spinner
+      ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+      
+      // Drop down layout style - list view with radio button
+      dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      
+      // attaching data adapter to spinner
+      spinner.setAdapter(dataAdapter);
+   }
+   
+   @Override
+   public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+      // On selecting a spinner item
+      String item = parent.getItemAtPosition(position).toString();
+      
+      // Showing selected spinner item
+      Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+   }
+   public void onNothingSelected(AdapterView<?> arg0) {
+      // TODO Auto-generated method stub
+   }
+}
+Modify the content of res/layout/activity_main.xml to the following
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   android:orientation="vertical"
+   android:padding="10dip"
+   android:layout_width="fill_parent"
+   android:layout_height="wrap_content">
+   
+   <TextView
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dip"
+      android:text="Category:"
+      android:layout_marginBottom="5dp"/>
+      
+   <Spinner
+      android:id="@+id/spinner"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:prompt="@string/spinner_title"/>
+      
+</LinearLayout>
+Modify the res/values/string.xml to the following
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+   <string name="app_name">AndroidSpinnerExample</string>
+   <string name="action_settings">Settings</string>
+</resources>
+This is the default AndroidManifest.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="com.example.spinner"
+   android:versionCode="1"
+   android:versionName="1.0" >
+   
+   <uses-sdk
+      android:minSdkVersion="8"
+      android:targetSdkVersion="22" />
+
+   <application
+      android:allowBackup="true"
+      android:icon="@drawable/ic_launcher"
+      android:label="@string/app_name"
+      android:theme="@style/AppTheme" >
+      
+      <activity
+         android:name="com.example.spinner.AndroidSpinnerExampleActivity"
+         android:label="@string/app_name" >
+      
+         <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+         </intent-filter>
+      
+      </activity>
+      
+   </application>
+</manifest>

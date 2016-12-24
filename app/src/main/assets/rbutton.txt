@@ -1,0 +1,151 @@
+A RadioButton has two states: either checked or unchecked.This allows the user to select one option from a set.
+RadioButton Attributes:
+Following are the important attributes related to RadioButton control. You can check Android official documentation for complete list of attributes and related methods which you can use to change these attributes are run time. Inherited from android.widget.TextView Class:
+Attribute Description
+1.android:autoText= If set, specifies that this TextView has a textual input method and automatically corrects some common spelling errors.
+2.android:drawableBottom= This is the drawable to be drawn below the text.
+3.android:drawableRight= This is the drawable to be drawn to the right of the text.
+4.android:editable= If set, specifies that this TextView has an input method.
+5.android:text= This is the Text to display.
+                    Inherited from android.view.View Class:
+Attribute Description
+1.android:background= This is a drawable to use as the background.
+2.android:contentDescription= This defines text that briefly describes content of the view.
+3.android:id= This supplies an identifier name for this view,
+4.android:onClick= This is the name of the method in this View's context to invoke when the view is clicked.
+5.android:visibility= This controls the initial visibility of the view.
+
+Example
+This example will take you through simple steps to show how to create your own Android application using Linear Layout and RadioButton.
+Steps Description
+1. You will use Android Studio to create an Android application and name it as GUIDemo8 under a package com.example.guidemo8 as explained in the Hello World Example chapter.
+2. Modify src/MainActivity.java file to add a click event.
+3. Modify the default content of res/layout/activity_main.xml file to include Android UI control.
+4. Define required constants in res/values/strings.xml file
+5. Run the application to launch Android emulator and verify the result of the changes done in the application.
+
+Following is the content of the modified main activity filesrc/com.example.guidemo8/MainActivity.java.
+This file can include each of the fundamental lifecycle methods.
+
+
+
+package com.example.guidemo8;
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+public class MainActivity extends Activity
+{
+  private RadioGroup radioGroupWebsite;
+  private RadioButton radioBtn1;
+  private Button btnWebsiteName;
+  @Override
+  protected void onCreate(Bundle savedInstanceState)
+  {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    addListenerRadioButton();
+   }
+   private void addListenerRadioButton()
+   { radioGroupWebsite = (RadioGroup) findViewById(R.id.radioGroup1);
+   btnWebsiteName = (Button) findViewById(R.id.button1);
+   btnWebsiteName.setOnClickListener(new OnClickListener()
+   {
+   @Override
+   public void onClick(View v)
+    { // get selected radio button from radioGroupWebsite int selected = radioGroupWebsite.getCheckedRadioButtonId();
+    radioBtn1 = (RadioButton) findViewById(selected);
+    Toast.makeText(MainActivity.this, radioBtn1.getText(), Toast.LENGTH_SHORT).show(); }
+    });
+    }
+     @Override
+      public boolean onCreateOptionsMenu(Menu menu)
+      { /* Inflate the menu; this adds items to the action bar if it is present */ getMenuInflater().inflate(R.menu.main, menu);
+      return true;
+      }
+      }
+
+
+Following will be the content of res/layout/activity_main.xml file:
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context=".MainActivity" >
+<TextView android:id="@+id/textView1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/example_radiobutton" />
+<Button android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignLeft="@+id/textView1"
+android:layout_centerVertical="true"
+android:text="@string/website_name" />
+<RadioGroup android:id="@+id/radioGroup1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignLeft="@+id/textView1"
+android:layout_below="@+id/textView1"
+android:layout_marginTop="30dp" >
+<RadioButton android:id="@+id/radio0"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:checked="true"
+android:text="@string/website_radio0" />
+<RadioButton android:id="@+id/radio1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/website_radio1" />
+<RadioButton android:id="@+id/radio2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="@string/website_radio2" />
+</RadioGroup>
+</RelativeLayout>
+
+
+
+
+Following will be the content of res/values/strings.xml to define these new constants:
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string name="app_name">GUIDemo8</string>
+<string name="action_settings">Settings</string>
+<string name="example_radiobutton">Example showing RadioButton</string>
+<string name="website_name">Website URL</string>
+<string name="website_radio0">www.tutorialspoint.com</string>
+<string name="website_radio1">www.compileonline.com</string>
+<string name="website_radio2">www.photofuntoos.com</string>
+</resources>
+
+
+
+Following is the default content of AndroidManifest.xml:
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.example.guidemo8"
+android:versionCode="1"
+android:versionName="1.0" >
+<uses-sdk android:minSdkVersion="8" android:targetSdkVersion="17" />
+<application android:allowBackup="true"
+android:icon="@drawable/ic_launcher"
+android:label="@string/app_name"
+android:theme="@style/AppTheme" >
+<activity android:name="com.example.guidemo8.MainActivity"
+android:label="@string/app_name" >
+<intent-filter>
+ <action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+</application>
+</manifest>

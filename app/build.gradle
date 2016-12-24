@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "com.bindass.dell.rippleeffect"
+        minSdkVersion 16
+        targetSdkVersion 23
+        versionCode 11
+        versionName "0.17b"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources true
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'com.android.support:design:24.1.1'
+    compile 'com.android.support:recyclerview-v7:24.1.1'
+    compile 'com.github.todou:appbarspring:1.0.3'
+    compile 'com.github.mmin18:realtimeblurview:1.0.4'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+
+    compile 'com.google.firebase:firebase-ads:9.0.0'
+
+
+    compile project(':myripple')
+    compile project(':mycirc')
+}

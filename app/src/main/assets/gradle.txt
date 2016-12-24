@@ -1,0 +1,9 @@
+It defines project type,Dependencies and customization only.
+it has three phases:initialization,configuration,execution.
+1.initialization=what projects to build.
+2.configuration=what tasks to perform for the projects.
+3.execution=perfrom the tasks to build.
+
+          Android Dependencies:-
+it is a virtual folder where eclipse shows what jar files the projects depends on.it's not a physical folder,you wouldn't find it on your hard disk.
+Don't delete this folder,it will destroy our project.
